@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manilhas do Truco Mineiro</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .container {
+      text-align: center;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cards {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: nowrap;
+      flex-shrink: 0;
+    }
+
+    .card {
+      width: 100px;
+      height: 150px;
+      background-color: #fff;
+      color: #000;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .rank {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .suit {
+      font-size: 2rem;
+      margin-top: 0.5rem;
+    }
+
+    .indicator-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 1.5rem;
+      width: 100%;
+    }
+
+    .indicator {
+      width: 100%;
+      max-width: 600px;
+      height: 4px;
+      background: linear-gradient(to right, blue, red);
+      position: relative;
+    }
+
+    .indicator-labels {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 600px;
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-top: 0.5rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .card {
+        width: 70px;
+        height: 100px;
+        font-size: 1.2rem;
+      }
+
+      .rank, .suit {
+        font-size: 1.2rem;
+      }
+
+      .indicator {
+        max-width: 300px;
+      }
+
+      .indicator-labels {
+        max-width: 300px;
+        font-size: 0.75rem;
+      }
+
+      .cards {
+        gap: 0.5rem;
+      }
+    }
+
+    /* Back button styles */
+    .back-button {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background-color: #1976d2; /* Blue background */
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #145a9e; /* Darker blue on hover */
+    }
+  </style>
+</head>
+<body>
+    <button class="back-button" onclick="location.href='index.html'" aria-label="Go back">←</button>
+    <div class="container">
+    <h1>Manilhas do Truco Mineiro</h1>
+    <div class="content-wrapper">
+      <div class="cards">
+        <div class="card">
+            <span class="rank">7</span>
+            <span class="suit">♦️</span>
+          </div>
+        <div class="card">
+          <span class="rank">A</span>
+          <span class="suit">♠️</span>
+        </div>   
+        <div class="card">
+            <span class="rank">7</span>
+            <span class="suit">♥️</span>
+          </div>
+        <div class="card">
+            <span class="rank">4</span>
+            <span class="suit">♣️</span>
+          </div>     
+      </div>
+      <div class="indicator-wrapper">
+        <div class="indicator"></div>
+        <div class="indicator-labels">
+        <span>⇦ Fraco</span>
+        <span>Forte ⇨</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

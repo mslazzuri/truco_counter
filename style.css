@@ -242,26 +242,60 @@ button.reset {
   align-items: center;
   justify-content: center;
   height: 100vh; /* Full viewport height */
-  gap: 2rem; /* Space between buttons */
+  gap: 1.5rem; /* Space between buttons */
+  padding: 1rem; /* Add padding for smaller screens */
 }
 
 .index-button {
-  width: 80%; /* Buttons take up 80% of the screen width */
-  height: 20%; /* Buttons take up 20% of the screen height */
-  font-size: 2rem; /* Large font size */
+  width: 100%; /* Buttons take up full width of the container */
+  max-width: 400px; /* Limit the button width on larger screens */
+  height: 15%; /* Buttons take up 15% of the screen height */
+  font-size: 1.5rem; /* Adjust font size */
   border: none;
   border-radius: 12px;
   cursor: pointer;
+  color: white;
+  transition: transform 0.2s ease, background-color 0.3s ease;
 }
 
-.index-button:first-of-type {
-  background-color: #426ac1; /* Green for the first button */
-  color: white;
+.index-button:hover {
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
 
-.index-button:last-of-type {
-  background-color: #316f39; /* Red for the second button */
-  color: white;
+/* Assign distinct colors to each button */
+.index-button:nth-child(1) {
+  background-color: #4caf50; /* Green */
+}
+
+.index-button:nth-child(2) {
+  background-color: #1976d2; /* Blue */
+}
+
+.index-button:nth-child(3) {
+  background-color: #ff9800; /* Orange */
+}
+
+.index-button:nth-child(4) {
+  background-color: #e53935; /* Red */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .index-button {
+    font-size: 1.2rem; /* Slightly smaller font size */
+    height: 12%; /* Adjust button height */
+  }
+
+  .index-buttons-grid {
+    gap: 1rem; /* Reduce gap between buttons */
+  }
+}
+
+@media (max-width: 480px) {
+  .index-button {
+    font-size: 1rem; /* Smaller font size for very small screens */
+    height: 10%; /* Adjust button height further */
+  }
 }
 
 /* Header styles for title and back button */
@@ -298,4 +332,57 @@ button.reset {
 h1 {
   font-size: 2rem;
   margin: 0;
+}
+
+/* Card styles */
+.card {
+  width: 70px;
+  height: 100px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.rank {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.suit {
+  display: flex; /* Use flexbox to align suits in a row */
+  justify-content: center; /* Center the suits horizontally */
+  align-items: center; /* Center the suits vertically */
+  gap: 0.2rem; /* Add spacing between suits */
+  font-size: 1.2rem;
+  margin-top: 0.3rem;
+  flex-wrap: nowrap; /* Prevent wrapping of suits */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .card {
+    width: 60px;
+    height: 90px;
+    font-size: 1rem;
+  }
+
+  .rank {
+    font-size: 1rem;
+  }
+
+  .suit {
+    font-size: 1rem; /* Adjust suit size for smaller screens */
+    gap: 0.1rem; /* Reduce spacing between suits */
+  }
 }

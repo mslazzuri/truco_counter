@@ -143,13 +143,17 @@ button.reset {
   }
 
   .teams {
-    flex-direction: column;
+    flex-direction: row; /* Ensure teams stay side by side */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
     gap: 1rem;
+    justify-content: space-around; /* Add spacing between teams */
   }
 
   .team {
+    flex: 1 1 45%; /* Allow each team to take up 45% of the width */
     margin-bottom: 1rem;
     padding: 0.5rem;
+    text-align: center;
   }
 
   .team-name {
@@ -192,16 +196,32 @@ button.reset {
 }
 
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem;
+  .teams {
+    display: flex; /* Ensure flexbox layout */
+    flex-direction: row; /* Keep teams side by side */
+    justify-content: space-between; /* Add spacing between teams */
+    gap: 0.5rem; /* Small gap between teams */
   }
 
-  .score {
-    font-size: 1.8rem;
+  .team {
+    flex: 1 1 48%; /* Each team takes up 48% of the width */
+    margin: 0; /* Remove extra margins */
+    padding: 0.5rem; /* Adjust padding for smaller screens */
+    text-align: center;
   }
 
   .team-name {
-    font-size: 0.9rem;
+    font-size: 0.9rem; /* Adjust font size */
+    padding: 0.25rem;
+  }
+
+  .score {
+    font-size: 1.8rem; /* Adjust score size */
+  }
+
+  .buttons-grid {
+    grid-template-columns: 1fr; /* Stack buttons vertically */
+    gap: 0.25rem;
   }
 
   button {

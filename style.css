@@ -1,0 +1,132 @@
+/* General dark theme */
+body.dark-theme {
+  background-color: #121212;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 2rem;
+}
+
+.scoreboard {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.team {
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+}
+
+.team-name {
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  text-align: center;
+  background: #2a2a2a;
+  border: none;
+  color: white;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+}
+
+.score {
+  font-size: 2.5rem;
+  margin: 1rem 0;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+/* Buttons */
+button {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button.inc {
+  background-color: #4caf50;
+  color: white;
+}
+
+button.dec {
+  background-color: #e53935;
+  color: white;
+}
+
+button.reset {
+  margin-top: 2rem;
+  background-color: #1976d2;
+  color: white;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Trophy icons */
+.trophies {
+  margin-top: 0.5rem;
+}
+
+.trophy {
+  font-size: 2rem;
+  margin: 0 0.25rem;
+  opacity: 0.3;
+  transition: opacity 0.3s;
+}
+
+.trophy.filled {
+  opacity: 1;
+  color: gold;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.modal-content {
+  background: #1f1f1f;
+  padding: 2rem;
+  border-radius: 12px;
+  color: #fff;
+  max-width: 400px;
+}
+
+.modal-content h2 {
+  margin-bottom: 1rem;
+}
+
+.modal-content button {
+  background-color: #1976d2;
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}

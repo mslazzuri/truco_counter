@@ -146,7 +146,7 @@ button:hover {
 
   .scoreboard {
     max-width: 100%;
-    padding: 0rem;
+    padding: 0;
   }
 
   .teams {
@@ -225,44 +225,49 @@ button:hover {
 }
 
 @media (max-width: 480px) {
-  
+  body.dark-theme {
+    padding: 0.5rem;
+  }
+
   .scoreboard {
     max-width: 100%;
-    padding: 0rem;
+    padding: 0;
   }
-  
+
   .teams {
-    display: flex; /* Ensure flexbox layout */
-    flex-direction: row; /* Keep teams side by side */
-    justify-content: space-between; /* Add spacing between teams */
-    gap: 0.1rem; /* Small gap between teams */
+    flex-direction: column; /* Stack teams vertically */
+    gap: 1rem; /* Add spacing between teams */
+    align-items: center; /* Center teams horizontally */
   }
 
   .team {
-    width: 100%; /* Make teams take up the full width on smaller screens */
-    flex: 1 1 50%; /* Each team takes up 48% of the width */
-    margin: 0; /* Remove extra margins */
-    padding: 0.5rem; /* Adjust padding for smaller screens */
+    width: 100%; /* Make each team take up the full width */
+    margin-bottom: 1rem;
+    padding: 0.5rem;
     text-align: center;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #1e1e1e;
   }
 
   .team-name {
-    font-size: 0.9rem; /* Adjust font size */
+    font-size: 1rem;
     padding: 0.25rem;
   }
 
   .score {
-    font-size: 1.8rem; /* Adjust score size */
+    font-size: 1.8rem; /* Adjust score size for small screens */
+    margin: 1rem 0;
   }
 
   .buttons-grid {
-    grid-template-columns: repeat(2, 1fr); /* Keep the 2-column grid for smaller screens */
+    grid-template-columns: repeat(2, 1fr); /* Keep a 2-column grid */
     gap: 0.25rem; /* Reduce spacing between buttons */
   }
 
   button {
-    font-size: 0.9rem; /* Reduce button font size */
-    padding: 0.4rem; /* Adjust padding for smaller buttons */
+    font-size: 0.9rem; /* Adjust button font size */
+    padding: 0.4rem; /* Adjust button padding */
   }
 
   button.reset {
@@ -409,7 +414,6 @@ h1 {
   margin-top: 0.3rem;
   flex-wrap: nowrap; /* Prevent wrapping of suits */
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 600px) {

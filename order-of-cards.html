@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ordem das Cartas</title>
+  <title>Ordem das Cartas - Truco Paulista</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #111;
       color: #fff;
@@ -20,210 +19,200 @@
 
     .container {
       text-align: center;
-      width: 100%;
-      max-width: 1100px;
+      max-width: 1000px;
     }
 
     h1 {
-      margin-bottom: 2rem;
-      font-size: 2rem;
+      margin-bottom: 0.5rem;
     }
 
-    .content-wrapper {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    .subtext {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      color: #ccc;
     }
 
     .cards {
       display: flex;
-      gap: 0.5rem;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
     }
 
-/* Card styles */
-.card {
-  width: 70px;
-  height: 100px;
-  background-color: #fff;
-  color: #000;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.rank {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-.suit {
-  display: flex; /* Use flexbox to align suits in a row */
-  justify-content: center; /* Center the suits horizontally */
-  align-items: center; /* Center the suits vertically */
-  gap: 0.2rem; /* Add spacing between suits */
-  font-size: 1.2rem;
-  margin-top: 0.3rem;
-  flex-wrap: nowrap; /* Prevent wrapping of suits */
-}
-
-/* Responsive adjustments */
-@media (max-width: 600px) {
-  .card {
-    width: 60px;
-    height: 90px;
-    font-size: 1rem;
-  }
-
-  .rank {
-    font-size: 1rem;
-  }
-
-  .suit {
-    font-size: 1rem; /* Adjust suit size for smaller screens */
-    gap: 0.1rem; /* Reduce spacing between suits */
-  }
-}    
-    .indicator-wrapper {
+    .card {
+      width: 70px;
+      height: 100px;
+      background-color: #fff;
+      color: #000;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
       display: flex;
-      flex-direction: column;
       align-items: center;
-      margin-top: 1.5rem;
-      width: 100%;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease, opacity 1.3s ease;
+      transform: scale(0.9);
+      opacity: 0;
+      /* animation: fadeIn 0.5s forwards; */
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .manilha {
+      border: 3px solid gold;
+      background-color: #ffeaa7;
+    }
+
+    .highlight {
+      outline: 3px solid cyan;
+    }
+
+    .indicator-wrapper {
+      margin-top: 2rem;
     }
 
     .indicator {
       width: 100%;
-      max-width: 700px;
+      max-width: 600px;
       height: 4px;
+      margin: 0 auto;
       background: linear-gradient(to right, blue, red);
-      position: relative;
     }
 
     .indicator-labels {
       display: flex;
       justify-content: space-between;
-      width: 100%;
-      max-width: 700px;
+      max-width: 600px;
+      margin: 0.3rem auto 2rem;
       font-size: 0.9rem;
       color: #aaa;
-      margin-top: 0.5rem;
     }
 
-    /* Responsive adjustments */
-    @media (max-width: 600px) {
-      .card {
-        width: 60px;
-        height: 90px;
-        font-size: 1rem;
-      }
-
-      .rank, .suit {
-        font-size: 1rem;
-      }
-
-      .indicator {
-        max-width: 300px;
-      }
-
-      .indicator-labels {
-        max-width: 300px;
-        font-size: 0.75rem;
-      }
-    }
-
-    .back-button {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
       background-color: #1976d2;
       color: white;
       border: none;
-      border-radius: 50%;
-      width: 3rem;
-      height: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
+      border-radius: 6px;
       cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       transition: background-color 0.3s ease;
     }
 
-    .back-button:hover {
+    button:hover {
       background-color: #145a9e;
     }
   </style>
 </head>
 <body>
-  <button class="back-button" onclick="location.href='index.html'" aria-label="Voltar">←</button>
   <div class="container">
-    <h1>Ordem das Cartas</h1>
-    <div class="content-wrapper">
-      <div class="cards">
-        <!-- Weaker to stronger (excluding manilhas) -->
-        
-        <div class="card">
-          <span class="rank">4</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">5</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">6</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">7</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">Q</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">J</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">K</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">A</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">2</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        <div class="card">
-          <span class="rank">3</span>
-          <div class="suit">♥️ ♦️ ♣️ ♠️</div>
-        </div>
-        
-      </div>
-      <div class="indicator-wrapper">
-        <div class="indicator"></div>
-        <div class="indicator-labels">
-          <span>⇦ Fraco</span>
-          <span>Forte ⇨</span>
-        </div>
+    <h1>Ordem das Cartas - Truco Paulista</h1>
+    <p class="subtext">Clique na carta virada para descobrir a ordem correta das cartas.</p>
+    <div class="cards" id="cardsContainer"></div>
+
+    <button onclick="resetCards()">Resetar Ordem</button>
+
+    <div class="indicator-wrapper">
+      <div class="indicator"></div>
+      <div class="indicator-labels">
+        <span>⇦ Fraca</span>
+        <span>Forte ⇨</span>
       </div>
     </div>
   </div>
-</body>
+
+  <script>
+    const suits = ["♦️", "♠️", "♥️", "♣️"];
+    const suitPriority = { "♦️": 0, "♠️": 1, "♥️": 2, "♣️": 3 };
+    const ranks = ["4", "5", "6", "7", "Q", "J", "K", "A", "2", "3"];
+  
+    let selectedRank = null;
+  
+    function createBaseDeck(excludeRank = null) {
+      return ranks
+        .filter(rank => rank !== excludeRank)
+        .map(rank => ({ rank, isManilha: false, showSuit: false }));
+    }
+  
+    // function getNextRank(rank) {
+    //   const idx = ranks.indexOf(rank);
+    //   if (idx === -1 || idx === ranks.length - 1) return null;
+    //   return ranks[idx + 1];
+    // }
+  
+    function handleCardClick(clickedRank) {
+      selectedRank = clickedRank;
+      const index = ranks.indexOf(clickedRank);
+      const manilhaRank = ranks[(index + 1) % ranks.length];
+  
+      const baseDeck = createBaseDeck(manilhaRank);
+  
+      const manilhas = suits.map(suit => ({
+        rank: manilhaRank,
+        suit,
+        isManilha: true,
+        showSuit: true
+      }));
+  
+      renderCards(manilhas.concat(baseDeck));
+    }
+  
+    function resetCards() {
+      selectedRank = null;
+      renderCards(createBaseDeck());
+    }
+  
+    function renderCards(deck) {
+      const container = document.getElementById("cardsContainer");
+      container.innerHTML = "";
+
+      const manilhas = deck.filter(c => c.isManilha);
+      const baseCards = deck.filter(c => !c.isManilha);
+
+      const sortedBase = baseCards.sort((a, b) => {
+        return ranks.indexOf(a.rank) - ranks.indexOf(b.rank);
+      });
+
+      const finalDeck = [...sortedBase, ...manilhas];
+
+      for (const card of finalDeck) {
+        const div = document.createElement("div");
+        div.classList.add("card");
+
+        if (card.isManilha) {
+          div.classList.add("manilha");
+        }
+
+        if (selectedRank && card.rank === selectedRank && !card.isManilha) {
+          div.classList.add("highlight");
+        }
+
+        div.textContent = card.showSuit ? `${card.rank} ${card.suit}` : card.rank;
+
+        if (!card.isManilha) {
+          div.addEventListener("click", () => handleCardClick(card.rank));
+        }
+
+        container.appendChild(div);
+        requestAnimationFrame(() => {
+          div.classList.add("show");
+        });
+      }
+    }
+  
+    // Initial render
+    renderCards(createBaseDeck());
+  </script>
+  </body>
 </html>

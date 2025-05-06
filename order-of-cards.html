@@ -19,7 +19,7 @@
 
     .container {
       text-align: center;
-      max-width: 1000px;
+      max-width: 1500px;
     }
 
     h1 {
@@ -69,11 +69,13 @@
     }
 
     .manilha {
-      background-color: #ffeaa7;
+      background-color: #FF85C4;
+      color: white;
     }
 
     .highlight {
-      background-color: rgb(92, 255, 241); /* Bright blue to indicate selection */
+      background-color: #246EB9;
+      color: white;
     }
 
     .indicator-wrapper {
@@ -82,18 +84,18 @@
 
     .indicator {
       width: 100%;
-      max-width: 600px;
+      max-width: 1500px;
       height: 4px;
       margin: 0 auto;
-      background: linear-gradient(to right, blue, red);
+      background: linear-gradient(to right, #246EB9, #FF85C4);
     }
 
     .indicator-labels {
       display: flex;
       justify-content: space-between;
-      max-width: 600px;
+      max-width: 1500px;
       margin: 0.3rem auto 2rem;
-      font-size: 0.9rem;
+      font-size: 1.5rem;
       color: #aaa;
     }
 
@@ -101,32 +103,60 @@
       margin-top: 1rem;
       padding: 0.5rem 1.5rem;
       font-size: 1rem;
-      background-color: #1976d2;
+      background-color: #246EB9;
       color: white;
       border: none;
       border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     button:hover {
-      background-color: #145a9e;
+      background-color: #1b4e82;
+      color: white;
+      scale: 1.05;
+      transition: all 0.3s ease;
+    }
+
+    /* Back button styles */
+    .back-button {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        background-color: white;
+        color: black;
+        border: none;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+        background-color: #1b4e82; /* Darker blue on hover */
     }
   </style>
 </head>
 <body>
+  <button class="back-button" onclick="location.href='index.html'" aria-label="Go back">←</button>
   <div class="container">
-    <h1>Ordem das Cartas - Truco Paulista</h1>
-    <p class="subtext">Clique na carta virada para descobrir a ordem correta das cartas.</p>
+    <h1>Order of Cards</h1>
+    <p class="subtext">Click on the flipped card to find out the correct order of cards.</p>
     <div class="cards" id="cardsContainer"></div>
 
-    <button onclick="resetCards()">Resetar Ordem</button>
+    <button onclick="resetCards()">Reset Order</button>
 
     <div class="indicator-wrapper">
       <div class="indicator"></div>
       <div class="indicator-labels">
-        <span>⇦ Fraca</span>
-        <span>Forte ⇨</span>
+        <span>Weakest</span>
+        <span>Strongest</span>
       </div>
     </div>
   </div>
@@ -143,12 +173,6 @@
         .filter(rank => rank !== excludeRank)
         .map(rank => ({ rank, isManilha: false, showSuit: false }));
     }
-  
-    // function getNextRank(rank) {
-    //   const idx = ranks.indexOf(rank);
-    //   if (idx === -1 || idx === ranks.length - 1) return null;
-    //   return ranks[idx + 1];
-    // }
   
     function handleCardClick(clickedRank) {
       selectedRank = clickedRank;

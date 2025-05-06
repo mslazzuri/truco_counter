@@ -56,26 +56,33 @@ button {
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  scale: 1;
+  transition: all ease 0.3s;
 }
 
 button.inc {
-  background-color: #4caf50;
+  background-color: #246EB9;
   color: white;
 }
 
 button.dec {
-  background-color: #e53935;
-  color: white;
+  background-color: white;
+  color: #246EB9;
 }
 
 button.reset {
   margin-top: 2rem;
-  background-color: #1976d2;
+  background-color: #246EB9;
   color: white;
   padding: 0.75rem 2rem;
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
+}
+
+button:hover {
+  scale: 1.05;
+  transition: all ease 0.3s;
 }
 
 /* Trophy icons */
@@ -139,21 +146,23 @@ button.reset {
 
   .scoreboard {
     max-width: 100%;
-    padding: 1rem;
+    padding: 0rem;
   }
 
   .teams {
-    flex-direction: row; /* Ensure teams stay side by side */
-    flex-wrap: wrap; /* Allow wrapping if necessary */
-    gap: 1rem;
-    justify-content: space-around; /* Add spacing between teams */
+    flex-direction: column; /* Stack teams vertically */
+    gap: 1rem; /* Add spacing between teams */
+    align-items: center; /* Center teams horizontally */
   }
 
   .team {
-    flex: 1 1 45%; /* Allow each team to take up 45% of the width */
+    width: 90%; /* Make each team take up most of the screen width */
     margin-bottom: 1rem;
-    padding: 0.5rem;
+    padding: 1rem;
     text-align: center;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #1e1e1e;
   }
 
   .team-name {
@@ -162,22 +171,42 @@ button.reset {
   }
 
   .score {
-    font-size: 2rem;
+    font-size: 2rem; /* Adjust score size for mobile */
+    margin: 1rem 0;
   }
 
   .buttons-grid {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Create a 2-column grid */
+    gap: 0.5rem; /* Add spacing between buttons */
+    justify-content: center;
+    margin-top: 1rem;
   }
 
   button {
-    font-size: 0.9rem;
-    padding: 0.4rem;
+    font-size: 1rem; /* Adjust button font size */
+    padding: 0.5rem; /* Adjust button padding */
   }
 
   button.reset {
-    font-size: 0.9rem;
-    padding: 0.5rem 1.5rem;
+    width: 90%; /* Make the reset button take up most of the screen width */
+    margin: 1rem auto; /* Center the reset button */
+    font-size: 1.2rem; /* Increase font size for better visibility */
+    padding: 0.75rem 1.5rem;
+  }
+
+  .sets {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .sets h2 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .set {
+    font-size: 1rem; /* Adjust game history font size */
+    margin: 0.5rem 0;
   }
 
   .modal-content {
@@ -196,15 +225,22 @@ button.reset {
 }
 
 @media (max-width: 480px) {
+  
+  .scoreboard {
+    max-width: 100%;
+    padding: 0rem;
+  }
+  
   .teams {
     display: flex; /* Ensure flexbox layout */
     flex-direction: row; /* Keep teams side by side */
     justify-content: space-between; /* Add spacing between teams */
-    gap: 0.5rem; /* Small gap between teams */
+    gap: 0.1rem; /* Small gap between teams */
   }
 
   .team {
-    flex: 1 1 48%; /* Each team takes up 48% of the width */
+    width: 100%; /* Make teams take up the full width on smaller screens */
+    flex: 1 1 50%; /* Each team takes up 48% of the width */
     margin: 0; /* Remove extra margins */
     padding: 0.5rem; /* Adjust padding for smaller screens */
     text-align: center;
@@ -220,18 +256,18 @@ button.reset {
   }
 
   .buttons-grid {
-    grid-template-columns: 1fr; /* Stack buttons vertically */
-    gap: 0.25rem;
+    grid-template-columns: repeat(2, 1fr); /* Keep the 2-column grid for smaller screens */
+    gap: 0.25rem; /* Reduce spacing between buttons */
   }
 
   button {
-    font-size: 0.8rem;
-    padding: 0.3rem;
+    font-size: 0.9rem; /* Reduce button font size */
+    padding: 0.4rem; /* Adjust padding for smaller buttons */
   }
 
   button.reset {
-    font-size: 0.8rem;
-    padding: 0.4rem 1rem;
+    font-size: 1rem; /* Adjust reset button font size */
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -247,10 +283,10 @@ button.reset {
 }
 
 .index-button {
-  width: 100%; /* Buttons take up full width of the container */
-  max-width: 400px; /* Limit the button width on larger screens */
-  height: 15%; /* Buttons take up 15% of the screen height */
-  font-size: 1.5rem; /* Adjust font size */
+  width: 100%;
+  max-width: 400px;
+  height: 15%;
+  font-size: 1.7rem;
   border: none;
   border-radius: 12px;
   cursor: pointer;
@@ -262,21 +298,26 @@ button.reset {
   transform: scale(1.05); /* Slightly enlarge the button on hover */
 }
 
+/* #FF85C4 */
 /* Assign distinct colors to each button */
 .index-button:nth-child(1) {
-  background-color: #4caf50; /* Green */
+  background-color: #246EB9;
+  color: white;
 }
 
 .index-button:nth-child(2) {
-  background-color: #1976d2; /* Blue */
+  background-color: #246EB9;
+  color: white;
 }
 
 .index-button:nth-child(3) {
-  background-color: #ff9800; /* Orange */
+  background-color: white;
+  color: #246EB9;
 }
 
 .index-button:nth-child(4) {
-  background-color: #e53935; /* Red */
+  background-color: white;
+  color: #246EB9;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -293,7 +334,7 @@ button.reset {
 
 @media (max-width: 480px) {
   .index-button {
-    font-size: 1rem; /* Smaller font size for very small screens */
+    font-size: 1.7rem; /* Smaller font size for very small screens */
     height: 10%; /* Adjust button height further */
   }
 }
@@ -310,7 +351,7 @@ button.reset {
 .back-button {
   position: absolute;
   left: 1rem; /* Position the button on the top left */
-  background-color: #1976d2; /* Blue background */
+  background-color: #246EB9; /* Blue background */
   color: white;
   border: none;
   border-radius: 50%;
@@ -326,7 +367,7 @@ button.reset {
 }
 
 .back-button:hover {
-  background-color: #145a9e; /* Darker blue on hover */
+  background-color: #1b4e82; /* Darker blue on hover */
 }
 
 h1 {
@@ -368,6 +409,7 @@ h1 {
   margin-top: 0.3rem;
   flex-wrap: nowrap; /* Prevent wrapping of suits */
 }
+
 
 /* Responsive adjustments */
 @media (max-width: 600px) {

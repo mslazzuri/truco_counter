@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Manilhas do Truco Mineiro</title>
+  <title>Trump Cards</title>
   <style>
     body {
       margin: 0;
@@ -21,7 +21,7 @@
     .container {
       text-align: center;
       width: 100%;
-      max-width: 900px;
+      max-width: 450;
     }
 
     h1 {
@@ -82,9 +82,9 @@
 
     .indicator {
       width: 100%;
-      max-width: 600px;
+      max-width: 450px;
       height: 4px;
-      background: linear-gradient(to right, blue, red);
+      background: linear-gradient(to right, #246EB9, #FF85C4);
       position: relative;
     }
 
@@ -92,14 +92,14 @@
       display: flex;
       justify-content: space-between;
       width: 100%;
-      max-width: 600px;
-      font-size: 0.9rem;
+      max-width: 450px;
+      font-size: 1.5rem;
       color: #aaa;
       margin-top: 0.5rem;
     }
 
     /* Responsive adjustments */
-    @media (max-width: 600px) {
+    @media (max-width: 450px) {
       h1 {
         font-size: 1.5rem;
       }
@@ -120,7 +120,7 @@
 
       .indicator-labels {
         max-width: 300px;
-        font-size: 0.75rem;
+        font-size: 1.2rem;
       }
 
       .cards {
@@ -133,8 +133,8 @@
         position: absolute;
         top: 1rem;
         left: 1rem;
-        background-color: white; /* Blue background */
-        color: black;
+        background-color: #246EB9; /* Blue background */
+        color: white;
         border: none;
         border-radius: 50%;
         width: 3rem;
@@ -145,19 +145,20 @@
         font-size: 1.5rem;
         cursor: pointer;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        transition: background-color 0.3s ease;
+        transition: all 0.3s ease;
     }
 
     .back-button:hover {
         background-color: #1b4e82; /* Darker blue on hover */
-        color: white;
+        scale: 1.05;
+        transition: all 0.3s ease;
     }
   </style>
 </head>
 <body>
     <button class="back-button" onclick="location.href='index.html'" aria-label="Go back">←</button>
     <div class="container">
-    <h1>Manilhas do Truco Mineiro</h1>
+    <h1>Trump Cards</h1>
     <div class="content-wrapper">
       <div class="cards">
         <div class="card">
@@ -180,8 +181,8 @@
       <div class="indicator-wrapper">
         <div class="indicator"></div>
         <div class="indicator-labels">
-        <span>⇦ Fraco</span>
-        <span>Forte ⇨</span>
+        <span>Weakest</span>
+        <span>Strongest</span>
         </div>
       </div>
     </div>

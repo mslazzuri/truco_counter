@@ -138,144 +138,6 @@ button:hover {
   cursor: pointer;
 }
 
-/* Add media queries for responsiveness */
-@media (max-width: 768px) {
-  body.dark-theme {
-    padding: 1rem;
-  }
-
-  .scoreboard {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .teams {
-    flex-direction: column; /* Stack teams vertically */
-    gap: 1rem; /* Add spacing between teams */
-    align-items: center; /* Center teams horizontally */
-  }
-
-  .team {
-    width: 90%; /* Make each team take up most of the screen width */
-    margin-bottom: 1rem;
-    padding: 1rem;
-    text-align: center;
-    border: 1px solid #333;
-    border-radius: 8px;
-    background-color: #1e1e1e;
-  }
-
-  .team-name {
-    font-size: 1rem;
-    padding: 0.25rem;
-  }
-
-  .score {
-    font-size: 2rem; /* Adjust score size for mobile */
-    margin: 1rem 0;
-  }
-
-  .buttons-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Create a 2-column grid */
-    gap: 0.5rem; /* Add spacing between buttons */
-    justify-content: center;
-    margin-top: 1rem;
-  }
-
-  button {
-    font-size: 1rem; /* Adjust button font size */
-    padding: 0.5rem; /* Adjust button padding */
-  }
-
-  button.reset {
-    width: 90%; /* Make the reset button take up most of the screen width */
-    margin: 1rem auto; /* Center the reset button */
-    font-size: 1.2rem; /* Increase font size for better visibility */
-    padding: 0.75rem 1.5rem;
-  }
-
-  .sets {
-    margin-top: 2rem;
-    text-align: center;
-  }
-
-  .sets h2 {
-    font-size: 1.5rem; /* Adjust heading size */
-  }
-
-  .set {
-    font-size: 1rem; /* Adjust game history font size */
-    margin: 0.5rem 0;
-  }
-
-  .modal-content {
-    padding: 1.5rem;
-    max-width: 90%;
-  }
-
-  .modal-content h2 {
-    font-size: 1.2rem;
-  }
-
-  .modal-content button {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  body.dark-theme {
-    padding: 0.5rem;
-  }
-
-  .scoreboard {
-    max-width: 100%;
-    padding: 0;
-  }
-
-  .teams {
-    flex-direction: column; /* Stack teams vertically */
-    gap: 1rem; /* Add spacing between teams */
-    align-items: center; /* Center teams horizontally */
-  }
-
-  .team {
-    width: 100%; /* Make each team take up the full width */
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    text-align: center;
-    border: 1px solid #333;
-    border-radius: 8px;
-    background-color: #1e1e1e;
-  }
-
-  .team-name {
-    font-size: 1rem;
-    padding: 0.25rem;
-  }
-
-  .score {
-    font-size: 1.8rem; /* Adjust score size for small screens */
-    margin: 1rem 0;
-  }
-
-  .buttons-grid {
-    grid-template-columns: repeat(2, 1fr); /* Keep a 2-column grid */
-    gap: 0.25rem; /* Reduce spacing between buttons */
-  }
-
-  button {
-    font-size: 0.9rem; /* Adjust button font size */
-    padding: 0.4rem; /* Adjust button padding */
-  }
-
-  button.reset {
-    font-size: 1rem; /* Adjust reset button font size */
-    padding: 0.5rem 1rem;
-  }
-}
-
 /* Styles for the buttons in index.html */
 .index-buttons-grid {
   display: flex;
@@ -325,34 +187,6 @@ button:hover {
   color: #246EB9;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  .index-button {
-    font-size: 1.2rem; /* Slightly smaller font size */
-    height: 12%; /* Adjust button height */
-  }
-
-  .index-buttons-grid {
-    gap: 1rem; /* Reduce gap between buttons */
-  }
-}
-
-@media (max-width: 480px) {
-  .index-button {
-    font-size: 1.7rem; /* Smaller font size for very small screens */
-    height: 10%; /* Adjust button height further */
-  }
-}
-
-/* Header styles for title and back button */
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: center; /* Center the title horizontally */
-  position: relative; /* Allow positioning of the back button */
-  margin-bottom: 2rem;
-}
-
 .back-button {
   position: absolute;
   left: 1rem; /* Position the button on the top left */
@@ -375,60 +209,11 @@ button:hover {
   background-color: #1b4e82; /* Darker blue on hover */
 }
 
-h1 {
-  font-size: 2rem;
-  margin: 0;
-}
-
-/* Card styles */
-.card {
-  width: 70px;
-  height: 100px;
-  background-color: #fff;
-  color: #000;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.6);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  transition: transform 0.2s ease;
-}
-
-.card:hover {
-  transform: scale(1.05);
-}
-
-.rank {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-.suit {
-  display: flex; /* Use flexbox to align suits in a row */
-  justify-content: center; /* Center the suits horizontally */
-  align-items: center; /* Center the suits vertically */
-  gap: 0.2rem; /* Add spacing between suits */
-  font-size: 1.2rem;
-  margin-top: 0.3rem;
-  flex-wrap: nowrap; /* Prevent wrapping of suits */
-}
-
-/* Responsive adjustments */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 600px) {
-  .card {
-    width: 60px;
-    height: 90px;
-    font-size: 1rem;
-  }
+  
+}
 
-  .rank {
-    font-size: 1rem;
-  }
+@media (max-width: 425px){
 
-  .suit {
-    font-size: 1rem; /* Adjust suit size for smaller screens */
-    gap: 0.1rem; /* Reduce spacing between suits */
-  }
 }

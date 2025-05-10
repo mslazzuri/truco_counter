@@ -1,153 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Truco Mineiro Scoreboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <style>
-    /* Add your existing styles here */
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>♣♥♠♦</title>
+    <link rel="stylesheet" href="scoreboard.css">
+    <script src="script.js"></script>
+
 </head>
+
 <body class="dark-theme">
-    <div class="header">
-        <button class="back-button" onclick="location.href='index.html'" aria-label="Go back">
-            &#8592;
-        </button>
-        <h1>Truco Mineiro</h1>
-      </div>
-    <div class="scoreboard">
+    
+    <a class="back-button" href="index.html">←</a>
+    <h1>♣♥♠♦</h1>
+    
+    <div class="container">
+    
+        <!-- TEAM 1 -->
+        <div class="scoreboard">
+            
+            <div class="team-grid">
+                <input class="team" type="text" value="Team 1" id="teamName1">
+            </div>
+            
+            <div class="wins-grid" id="trophies1">
+                <div class="wins"></div>
+                <div class="wins"></div>
+            </div>
 
-    <div class="teams" style="display: flex; justify-content: space-around; gap: 2rem;">
-      <div class="team" id="team1" style="flex: 1; text-align: center;">
-        <input type="text" class="team-name" id="teamName1" value="Team 1" />
-        <div class="trophies" id="trophies1">
-          <span class="trophy">🏆</span><span class="trophy">🏆</span>
+            <div class="score-grid">
+                <div class="inner-score-grid">
+                    <div class="score" id="score1">0</div>
+                </div>
+            </div>
+            
+            <div class="button-grid">     
+                <div class="inner-button-grid">
+                    <button class="inc" onclick="changeScore('score1', 2)">+2</button>
+                    <button class="inc" onclick="changeScore('score1', 4)">+4</button>
+                    <button class="inc" onclick="changeScore('score1', 6)">+6</button>
+                    <button class="inc" onclick="changeScore('score1', 8)">+8</button>
+                    <button class="dec" onclick="changeScore('score1', -2)">-2</button>
+                    <button class="dec" onclick="changeScore('score1', -4)">-4</button>
+                </div>
+            </div>
+        
         </div>
-        <div class="score" id="score1">0</div>
-        <div class="buttons-grid">
-          <button class="inc" onclick="changeScore('score1', 2)">+2</button>
-          <button class="inc" onclick="changeScore('score1', 4)">+4</button>
-          <button class="inc" onclick="changeScore('score1', 6)">+6</button>
-          <button class="inc" onclick="changeScore('score1', 8)">+8</button>
-          <button class="dec" onclick="changeScore('score1', -2)">-2</button>
-          <button class="dec" onclick="changeScore('score1', -4)">-4</button>
-        </div>
-      </div>
 
-      <div class="team" id="team2" style="flex: 1; text-align: center;">
-        <input type="text" class="team-name" id="teamName2" value="Team 2" />
-        <div class="trophies" id="trophies2">
-          <span class="trophy">🏆</span><span class="trophy">🏆</span>
+        <!-- TEAM 2 -->
+        <div class="scoreboard">
+            
+            <div class="team-grid">
+                <input class="team" type="text" value="Team 2" id="teamName2">
+            </div>
+
+            <div class="wins-grid" id="trophies2">
+                <div class="wins"></div>
+                <div class="wins"></div>
+            </div>
+            
+            <div class="score-grid">
+                <div class="inner-score-grid">
+                    <div class="score" id="score2">0</div>
+                </div>
+            </div>
+            
+            <div class="button-grid">     
+                <div class="inner-button-grid">
+                    <button class="inc" onclick="changeScore('score2', 2)">+2</button>
+                    <button class="inc" onclick="changeScore('score2', 4)">+4</button>
+                    <button class="inc" onclick="changeScore('score2', 6)">+6</button>
+                    <button class="inc" onclick="changeScore('score2', 8)">+8</button>
+                    <button class="dec" onclick="changeScore('score2', -2)">-2</button>
+                    <button class="dec" onclick="changeScore('score2', -4)">-4</button>
+                </div>
+            </div>
+        
         </div>
-        <div class="score" id="score2">0</div>
-        <div class="buttons-grid">
-          <button class="inc" onclick="changeScore('score2', 2)">+2</button>
-          <button class="inc" onclick="changeScore('score2', 4)">+4</button>
-          <button class="inc" onclick="changeScore('score2', 6)">+6</button>
-          <button class="inc" onclick="changeScore('score2', 8)">+8</button>
-          <button class="dec" onclick="changeScore('score2', -2)">-2</button>
-          <button class="dec" onclick="changeScore('score2', -4)">-4</button>
-        </div>
-      </div>
+
     </div>
 
-    <div class="sets">
-      <h2>Games</h2>
-      <div id="setsContainer">
-        <!-- Game history will be appended here -->
-      </div>
+    <button class="reset-button" onclick="resetScores()">Reset</button>
+
+    <!-- Modal Dialog -->
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalMessage"></h2>
+            <button id="modalButton" onclick="closeModal()">OK</button>
+        </div>
     </div>
 
-    <button class="reset" onclick="resetScores()">Reset</button>
-  </div>
-
-  <div id="winnerModal" class="modal">
-    <div class="modal-content">
-      <h2 id="winnerMessage"></h2>
-      <button onclick="playAgain()">Play Again</button>
-    </div>
-  </div>
-
-  <audio id="winSound" src="hino_flamengo.mp3"></audio>
-
-  <script>
-    let wins = { team1: 0, team2: 0 };
-    let setCounter = 1;
-
-    function changeScore(id, delta) {
-      const scoreEl = document.getElementById(id);
-      let score = parseInt(scoreEl.textContent);
-      score = Math.max(0, Math.min(12, score + delta));
-      scoreEl.textContent = score;
-
-      if (score === 12) {
-        let teamName, trophiesId, teamKey;
-        if (id === 'score1') {
-          wins.team1++;
-          teamName = document.getElementById('teamName1').value;
-          trophiesId = 'trophies1';
-          teamKey = 'team1';
-          updateTrophies(trophiesId, wins.team1);
-        } else {
-          wins.team2++;
-          teamName = document.getElementById('teamName2').value;
-          trophiesId = 'trophies2';
-          teamKey = 'team2';
-          updateTrophies(trophiesId, wins.team2);
-        }
-
-        appendSetWinner(teamName);
-
-        if (wins.team1 === 2 || wins.team2 === 2) {
-          document.getElementById('winSound').play();
-          document.getElementById('winnerMessage').textContent = `${teamName} wins the match!`;
-          document.getElementById('winnerModal').style.display = 'flex';
-        }
-
-        setTimeout(() => {
-          document.getElementById('score1').textContent = 0;
-          document.getElementById('score2').textContent = 0;
-        }, 500);
-      }
-    }
-
-    function appendSetWinner(teamName) {
-      setCounter++;
-      const setsContainer = document.getElementById("setsContainer");
-      const setDiv = document.createElement("div");
-      setDiv.className = "set";
-      const score1 = document.getElementById('score1').textContent;
-      const score2 = document.getElementById('score2').textContent;
-      setDiv.textContent = `Game ${setCounter - 1}: ${teamName} (${score1} - ${score2})`;
-      setsContainer.appendChild(setDiv);
-    }
-
-    function updateTrophies(trophiesId, count) {
-      const trophies = document.getElementById(trophiesId).children;
-      for (let i = 0; i < trophies.length; i++) {
-        trophies[i].classList.toggle('filled', i < count);
-      }
-    }
-
-    function resetScores() {
-      document.getElementById('score1').textContent = 0;
-      document.getElementById('score2').textContent = 0;
-      wins = { team1: 0, team2: 0 };
-      updateTrophies('trophies1', 0);
-      updateTrophies('trophies2', 0);
-      document.getElementById('winnerModal').style.display = 'none';
-      document.getElementById('setsContainer').innerHTML = '';
-      setCounter = 1;
-    }
-
-    function playAgain() {
-      const audio = document.getElementById('winSound');
-      audio.pause();
-      audio.currentTime = 0;
-      document.getElementById('winnerModal').style.display = 'none';
-      resetScores();
-    }
-  </script>
+    <!-- Audio For Winning -->
+    <audio id="winSound" src="hino_flamengo.mp3"></audio>
 </body>
 </html>

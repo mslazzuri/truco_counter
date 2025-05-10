@@ -65,7 +65,7 @@ function resetWins() {
     // Reset the wins indicators for both teams
     const allWinsElements = document.querySelectorAll('.wins');
     allWinsElements.forEach(winsEl => {
-        winsEl.style.backgroundColor = 'grey'; // Reset to grey
+        winsEl.style.backgroundColor = 'rgb(45, 45, 45)'; // Reset to grey
     });
 }
 

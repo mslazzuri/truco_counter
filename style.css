@@ -3,7 +3,7 @@ body.dark-theme {
   background-color: #121212;
   color: #ffffff;
   font-family: Arial, sans-serif;
-  margin: 0;
+  margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
@@ -150,8 +150,8 @@ button:hover {
 }
 
 .index-button {
-  width: 100%;
-  max-width: 400px;
+  width: 80%;
+  /* max-width: 400px; */
   height: 15%;
   font-size: 1.7rem;
   border: none;

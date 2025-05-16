@@ -8,10 +8,20 @@ Welcome to **Secco Truco**, an interactive and intuitive platform for learning a
 
 ## 📸 Screenshots
 
-<!-- Add screenshots here once available -->
-*Main menu preview*  
-*Card order animation*  
-*Interactive scoreboard view*
+## 📸 Screenshots
+
+### Truco Paulista
+![Truco Paulista](screenshots/paulista.png)
+
+### Truco Mineiro
+![Truco Mineiro](screenshots/mineiro.png)
+
+### Order of Cards
+![Order of Cards](screenshots/order-of-cards.png)
+
+### Trump Card
+![Trump Card](screenshots/trump-card.png)
+
 
 ---
 

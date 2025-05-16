@@ -8,8 +8,6 @@ Welcome to **Secco Truco**, an interactive and intuitive platform for learning a
 
 ## 📸 Screenshots
 
-## 📸 Screenshots
-
 ### Truco Paulista
 ![Truco Paulista](screenshots/paulista.png)
 

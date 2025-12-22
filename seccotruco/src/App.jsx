@@ -1,27 +1,22 @@
-import MenuButton from "./components/MenuButton.jsx";
+import { useNavigate } from "react-router-dom";
+import "./styles/HomePageStyle.css";
 
 function App() {
 
-  const scoreboardPages = [
-    { name: "Truco Paulista", path: "/scoreboard-paulista" },
-    { name: "Truco Mineiro", path: "/scoreboard-mineiro" },
-  ];
-  
-  const rulesPages = [
-    { name: "How to Play", path: "/how-to-play" },
-    { name: "Order of Cards", path: "/order-of-cards" },
-  ];
+  const navigate = useNavigate();
+  const handlePageClick = (path) => { navigate(path); };
   
   return (
     <>    
       {/* This is a centered div by the way */}
-      <div style={{display: "flex",flexDirection: "column", justifyContent: "center", alignItems: "center", height: "100vh"}}>
-        
-        <h1>Welcome to Secco Truco!</h1>
-        
-        <div style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "25px"}}>
-          <MenuButton title="Scoreboards" pagesList={scoreboardPages}/>
-          <MenuButton title="Rules" pagesList={rulesPages}/>
+      <div className="fabric">
+        <h1>Secco Truco</h1>  
+        <hr />
+        <div className="menu-buttons">
+          <button onClick={() => handlePageClick("/scoreboard-paulista")}>Scoreboard Paulista</button>
+          <button onClick={() => handlePageClick("/scoreboard-mineiro")}>Scoreboard Mineiro</button>
+          <button onClick={() => handlePageClick("/how-to-play")}>How To Play</button>
+          <button onClick={() => handlePageClick("/order-of-cards")}>Order of Cards</button>
         </div>
       </div>
     </>

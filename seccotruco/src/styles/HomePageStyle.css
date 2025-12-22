@@ -1,0 +1,113 @@
+:root {
+  --beige: #FEFAE0;
+  --gray: #F2EED7;
+  --green1: #798645;
+  --green2: #626F47;
+  --error: #DC143C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.fabric {
+    background-color: #626F47;
+    background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    border-radius: 10px;
+    height: 90vh;
+    width: 95vw;
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.router-button {
+    cursor: pointer;
+    padding: 5px;
+    background-color: pink;
+    border: 2px solid blue;
+}
+
+h1 {
+    font-family: "Sekuya", system-ui;
+    font-size: 48pt;
+    color: var(--gray);
+}
+
+hr {
+    border: 2px solid var(--green1);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.menu-buttons button {
+    border: none;
+    color: var(--gray);
+    background-color: transparent;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-size: 22pt;
+    font-style: normal;
+    text-align: left;
+    margin-bottom: 25px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-buttons button:hover {
+    color: var(--green1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32pt;
+    }
+    
+    .fabric {
+        height: 95vh;
+        width: 98vw;
+        padding: 15px;
+    }
+
+    .menu-buttons button {
+        font-size: 14pt;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24pt;
+    }
+    
+    .fabric {
+        padding: 10px;
+    }
+
+    .menu-buttons button {
+        font-size: 12pt;
+    }
+}

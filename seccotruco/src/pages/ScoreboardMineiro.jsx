@@ -62,28 +62,30 @@ function ScoreboardPaulista() {
 
     return (
         <>
-        <h2 style={{display: "flex", justifyContent: "center", alignItems: "center"}}>Scoreboard Mineiro</h2>
+        <div className="fabric">
+            <h2 style={{display: "flex", justifyContent: "center", alignItems: "center"}}>Scoreboard Mineiro</h2>
 
-        {isGameOver() && (
-            <div style={{textAlign: "center", marginBottom: "20px"}}>
-                <h3>Game Over! {wins1 === 2? teamName1 : teamName2} wins the game!</h3>
-                <button onClick={resetGame}>New Match</button>
-            </div>
-        )}
+            {isGameOver() && (
+                <div style={{textAlign: "center", marginBottom: "20px"}}>
+                    <h3>Game Over! {wins1 === 2? teamName1 : teamName2} wins the game!</h3>
+                    <button onClick={resetGame}>New Match</button>
+                </div>
+            )}
 
-        {displayRoundMessage && (
-            <div style={{textAlign: "center", marginBottom: "20px"}}>
-                <h3>Round is over! {wonLastRound} won the round!</h3>
-                <button onClick={resetRound}>New Round</button>
-            </div>
-        )}
+            {displayRoundMessage && (
+                <div style={{textAlign: "center", marginBottom: "20px"}}>
+                    <h3>Round is over! {wonLastRound} won the round!</h3>
+                    <button onClick={resetRound}>New Round</button>
+                </div>
+            )}
 
-        {!isGameOver() && !displayRoundMessage && (
-            <div style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", height: "100%"}}>
-                <Scoreboard team={teamName1} type="Mineiro" wins={wins1} score={score1} onScoreChange={(pts) => handleScoreChange(1, pts)} onNameChange={(name) => handleNameChange(1, name)} />
-                <Scoreboard team={teamName2} type="Mineiro" wins={wins2} score={score2} onScoreChange={(pts) => handleScoreChange(2, pts)} onNameChange={(name) => handleNameChange(2, name)} />
-            </div>
-        )}
+            {!isGameOver() && !displayRoundMessage && (
+                <div style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", height: "100%"}}>
+                    <Scoreboard team={teamName1} type="Mineiro" wins={wins1} score={score1} onScoreChange={(pts) => handleScoreChange(1, pts)} onNameChange={(name) => handleNameChange(1, name)} />
+                    <Scoreboard team={teamName2} type="Mineiro" wins={wins2} score={score2} onScoreChange={(pts) => handleScoreChange(2, pts)} onNameChange={(name) => handleNameChange(2, name)} />
+                </div>
+            )}
+        </div>
         </>
     );
 }

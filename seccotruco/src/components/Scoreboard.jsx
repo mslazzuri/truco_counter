@@ -14,23 +14,13 @@ function Scoreboard({team, type, score, wins, onScoreChange, onNameChange}) {
 
     return (
         <>
-        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
-            <div style={{backgroundColor: "#444", padding: "25px", borderRadius: "10px"}}>
+        <div className="centered-div-scoreboard">
+            <div className="scoreboard">
                 <textarea 
                     value={team} 
                     maxLength={15}
                     rows={1}
-                    style={{
-                        textAlign: "center", 
-                        alignContent: "center", 
-                        border: "none", 
-                        padding: "10px",
-                        borderRadius: "10px", 
-                        resize: "none",
-                        outline: "2px solid transparent",
-                        transition: "outline 0.2s"
-                    }}
-                    onFocus={(e) => e.target.style.outline = "2px solid cadetblue"}
+                    onFocus={(e) => e.target.style.outline = "2px solid var(--green1)"}
                     onBlur={(e) => e.target.style.outline = "2px solid transparent"}
                     onChange={(e) => onNameChange(e.target.value)}
                     onKeyDown={handleKeyDown}
@@ -39,11 +29,13 @@ function Scoreboard({team, type, score, wins, onScoreChange, onNameChange}) {
                 
                 <div style={{display: "flex", gap: "10px", justifyContent: "center", margin: "10px 0"}}>
                     <div style={{width: "10px", height: "10px", borderRadius: "50%", 
-                        background: wins >= 1 ? "green" : "gray"
+                        background: wins >= 1 ? "var(--green1)" : "var(--beige)",
+                        boxShadow: wins >= 1 ? "0 0 8px var(--green1), 0 0 4px var(--green1)" : "none",
                     }}></div>
                     
                     <div style={{width: "10px", height: "10px", borderRadius: "50%", 
-                        background: wins >= 2 ? "green" : "gray"
+                        background: wins >= 2 ? "var(--green1)" : "var(--beige)",
+                        boxShadow: wins >= 2 ? "0 0 8px var(--green1), 0 0 4px var(--green1)" : "none"
                     }}></div>
                 </div>
                 

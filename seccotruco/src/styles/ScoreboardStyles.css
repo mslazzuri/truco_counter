@@ -1,6 +1,15 @@
+.scoreboards-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100%;
+}
+
 .Score {
-    color: white;
+    color: var(--green1);
     font-size: 24px;
+    font-weight: 800;
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -13,23 +22,31 @@
 }
 
 .game-button {
-    background-color: cadetblue;
-    color: white;
+    background-color: var(--green2);
+    color: var(--gray);
     padding: 10px;
     width: 100%;
     text-align: center;
     border: none;
     border-radius: 10px;
-    box-shadow: 0px 3px 4px 1px black;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12pt;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.1);
+    cursor: pointer;
 }
 
 .game-grid-buttons .game-button:nth-last-child(-n+2) {
-    background-color: white;
-    color: cadetblue;
+    background-color: var(--beige);
+    color: var(--green2);
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.05);
+}
+
+.game-grid-buttons .game-button:nth-last-child(-n+2):hover {
+    background-color: var(--gray);
 }
 
 .game-button:hover {
-    background-color: #aaa;
+    background-color: var(--green1);
 }
 
 .circle {
@@ -46,3 +63,173 @@
     display: flex;
     gap: 5px;
 }
+
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Sekuya", system-ui;
+    font-weight: 100;
+    font-size: 22pt;
+    color: var(--gray);
+}
+
+textarea {
+    background-color: var(--beige);
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.05);
+    text-align: center;
+    align-content: center;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    resize: none;
+    outline: 2px solid transparent;
+    transition: outline 0.2s;
+    font-family: 'IMB Plex Mono' monospace;
+    font-weight: 800;
+    color: var(--green2);
+    font-size: 11pt;
+}
+
+textarea::selection {
+    background-color: var(--green1);
+    color: var(--beige);
+}
+
+.scoreboard {
+    background-color: var(--gray);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.05);
+}
+
+.centered-div-scoreboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.dialog-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    background-color: var(--beige);
+    color: var(--green2);
+    max-width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+}
+
+.dialog-box button {
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.05);
+    margin-top: 25px;
+    background-color: var(--green1);
+    color: var(--gray);
+    border: none;
+    padding: 10px 50px;
+    border-radius: 10px;
+    font-family: 'Sekuya' monospace;
+    font-weight: 500;
+    font-size: 12pt;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 14pt;
+        margin-bottom: 10px;
+    }
+
+    .scoreboards-display {
+        gap: 2px;
+        padding: 0 5px;
+    }
+
+    .scoreboard {
+        padding: 12px;
+        flex: 1;
+    }
+
+    textarea {
+        font-size: 9.5pt;
+        padding: 10px 0px;
+    }
+
+    .Score {
+        font-size: 20px;
+        padding-top: 6px;
+        padding-bottom: 6px;
+    }
+
+    .game-grid-buttons {
+        gap: 4px;
+    }
+
+    .game-button {
+        padding: 10px 6px;
+        font-size: 12pt;
+    }
+}
+
+/* @media (max-width: 480px) {
+    h2 {
+        font-size: 12pt;
+        margin-bottom: 8px;
+    }
+
+    .scoreboards-display {
+        gap: 6px;
+        padding: 0 2px;
+    }
+
+    .scoreboard {
+        padding: 8px;
+    }
+
+    textarea {
+        font-size: 8pt;
+        padding: 4px;
+    }
+
+    .Score {
+        font-size: 18px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    .game-grid-buttons {
+        gap: 4px;
+    }
+
+    .game-button {
+        padding: 6px 2px;
+        font-size: 9pt;
+    }
+
+    .circle {
+        width: 8px;
+        height: 8px;
+    }
+
+    .wins-indicator {
+        gap: 4px;
+        margin: 6px 0;
+    }
+} */

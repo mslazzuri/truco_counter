@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Scoreboard from "../components/Scoreboard"
+import DialogBox from "../components/DialogBox";
 
 function ScoreboardPaulista() {
     let [teamName1, setTeamName1] = useState("Team 1");
@@ -8,8 +9,9 @@ function ScoreboardPaulista() {
     let [wins2, setWins2] = useState(0);
     let [score1, setScore1] = useState(0);
     let [score2, setScore2] = useState(0);
-    let [displayRoundMessage, setDisplayRoundMessage] = useState(false);
     let [wonLastRound, setWonLastRound] = useState("");
+    let [showDialogBox, setShowDialogBox] = useState(false);
+    let [elevensShown, setElevensShown] = useState(false);
 
     function handleScoreChange(teamId, pts) {
         let currentScore = 0;
@@ -19,7 +21,7 @@ function ScoreboardPaulista() {
             if ((currentScore + pts) >= 12) { 
                 setScore1(12);
                 setWins1(prev=>prev+1);
-                if (wins1 === 0) { setDisplayRoundMessage(true); setWonLastRound(teamName1); }
+                if (wins1 === 0) { setShowDialogBox(true); setWonLastRound(teamName1); }
                 return; 
             }
             setScore1(currentScore+pts);
@@ -30,7 +32,7 @@ function ScoreboardPaulista() {
             if ((currentScore + pts) >= 12) {
                 setScore2(12);
                 setWins2(prev=>prev+1);
-                if (wins2 === 0){ setDisplayRoundMessage(true); setWonLastRound(teamName2); }
+                if (wins2 === 0){ setShowDialogBox(true); setWonLastRound(teamName2); }
                 return;
             }
             setScore2(currentScore+pts);
@@ -47,7 +49,8 @@ function ScoreboardPaulista() {
     }
 
     function resetRound() {
-        setDisplayRoundMessage(false);
+        setShowDialogBox(false);
+        setElevensShown(false);
         setScore1(0);
         setScore2(0);
     }
@@ -60,30 +63,44 @@ function ScoreboardPaulista() {
         }
     }
 
+    function isElevens() {
+        return (score1 === 10 && score2 === 10);
+    }
+
     return (
         <>
         <div className="fabric">
-            <h2 style={{display: "flex", justifyContent: "center", alignItems: "center"}}>Scoreboard Mineiro</h2>
+            <h2>Scoreboard Paulista</h2>
 
             {isGameOver() && (
-                <div style={{textAlign: "center", marginBottom: "20px"}}>
-                    <h3>Game Over! {wins1 === 2? teamName1 : teamName2} wins the game!</h3>
-                    <button onClick={resetGame}>New Match</button>
-                </div>
+                <>
+                    <DialogBox isOpen={true} onClose={() => resetGame()} buttonText={"New Game"}>
+                        <h3>Game Over!</h3>
+                        <br />
+                        <p style={{fontSize: "12pt", fontWeight: "300"}}> {wins1 == 2? teamName1 : teamName2} wins the game!</p>
+                    </DialogBox>
+                </>
             )}
 
-            {displayRoundMessage && (
-                <div style={{textAlign: "center", marginBottom: "20px"}}>
-                    <h3>Round is over! {wonLastRound} won the round!</h3>
-                    <button onClick={resetRound}>New Round</button>
-                </div>
-            )}
-
-            {!isGameOver() && !displayRoundMessage && (
-                <div style={{display: "flex", justifyContent: "center", alignItems: "center", gap: "20px", height: "100%"}}>
-                    <Scoreboard team={teamName1} type="Mineiro" wins={wins1} score={score1} onScoreChange={(pts) => handleScoreChange(1, pts)} onNameChange={(name) => handleNameChange(1, name)} />
-                    <Scoreboard team={teamName2} type="Mineiro" wins={wins2} score={score2} onScoreChange={(pts) => handleScoreChange(2, pts)} onNameChange={(name) => handleNameChange(2, name)} />
-                </div>
+            {!isGameOver() && (
+                <>
+                    <div className="scoreboards-display">
+                        <Scoreboard team={teamName1} type="Mineiro" wins={wins1} score={score1} onScoreChange={(pts) => handleScoreChange(1, pts)} onNameChange={(name) => handleNameChange(1, name)} />
+                        <Scoreboard team={teamName2} type="Mineiro" wins={wins2} score={score2} onScoreChange={(pts) => handleScoreChange(2, pts)} onNameChange={(name) => handleNameChange(2, name)} />
+                    </div>
+                    
+                    {isElevens() && !elevensShown && (
+                        <DialogBox isOpen={true} onClose={() => setElevensShown(true)}>
+                            <p>10's Hand!</p>
+                        </DialogBox>
+                    )}
+                    
+                    {showDialogBox && (
+                        <DialogBox isOpen={true} onClose={() => resetRound()}>
+                            <p>{wonLastRound} Won!</p>
+                        </DialogBox>
+                    )}
+                </>
             )}
         </div>
         </>

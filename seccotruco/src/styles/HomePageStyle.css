@@ -50,6 +50,13 @@ h1 {
     color: var(--gray);
 }
 
+h4 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12pt;
+    font-weight: 300;
+    color: var(--gray);
+}
+
 hr {
     border: 2px solid var(--green1);
     border-radius: 10px;

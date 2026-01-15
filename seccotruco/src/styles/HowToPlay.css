@@ -1,0 +1,9 @@
+p {
+    color: var(--gray);
+    font-family: "IMB Plex Mono", monospace;
+    font-size: 14pt;
+    font-weight: 300;
+    margin-left: 50px;
+    margin-right: 50px;
+    text-align: justify;
+}

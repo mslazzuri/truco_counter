@@ -8,14 +8,20 @@
 }
 
 .reset-button {
-    background-color: var(--beige);
-    border: none;
-    border-radius: 10px;
-    padding: 10px 15px;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    width: auto;
-    display: inline-block;
-    align-self: center;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.1);
+  background-color: var(--beige);
+  color: var(--lightGreen);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 50px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  width: auto;
+  display: inline-block;
+  align-self: center;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.reset-button:hover {
+  background-color: var(--gray);
 }

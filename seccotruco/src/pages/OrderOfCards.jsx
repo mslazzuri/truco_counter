@@ -46,13 +46,15 @@ function OrderOfCards() {
     // Compute the current order for Paulista
     let paulistaCards = [...PAULISTA_ORDER];
     let manillas = [];
+    
     if (viraIndex !== null) {
         // The manillas are the next card after vira, wrapping around
-        const nextIndex = (viraIndex + 1) % PAULISTA_ORDER.length;
+        const nextIndex = (viraIndex+1) % PAULISTA_ORDER.length;
+    
         paulistaCards = [
-            ...PAULISTA_ORDER,
-            ...PAULISTA_MANILLAS.map((m, i) => ({ ...m, value: PAULISTA_ORDER[nextIndex].value, suit: m.suit })),
+            ...PAULISTA_ORDER.filter((_, i) => i !== (viraIndex+1) % PAULISTA_ORDER.length),
         ];
+
         manillas = PAULISTA_MANILLAS.map((m, i) => ({ ...m, value: PAULISTA_ORDER[nextIndex].value, suit: m.suit }));
     }
 
@@ -67,15 +69,20 @@ function OrderOfCards() {
             <h4>Paulista</h4>
             <hr />
             <div className="card-row">
-                {PAULISTA_ORDER.map((card, idx) => (
-                    <Card
-                        key={idx}
-                        value={card.value}
-                        suit={card.suit}
-                        selected={viraIndex === idx}
-                        onClick={() => setViraIndex(idx)}
-                    />
-                ))}
+                {paulistaCards.map((card, idx) => {
+                    const originalIndex = PAULISTA_ORDER.findIndex(originaCard => 
+                        originaCard.value === card.value && originaCard.suit === card.suit
+                    );
+                    return (
+                        <Card
+                            key={idx}
+                            value={card.value}
+                            suit={card.suit}
+                            selected={viraIndex === originalIndex}
+                            onClick={() => setViraIndex(idx)}
+                        />
+                    );
+                })}
                 {viraIndex !== null &&
                     manillas.map((card, idx) => (
                         <Card

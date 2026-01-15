@@ -89,6 +89,7 @@ textarea {
     font-weight: 800;
     color: var(--green2);
     font-size: 11pt;
+    width: 100%;
 }
 
 textarea::selection {
@@ -151,65 +152,28 @@ textarea::selection {
 }
 
 /* Mobile responsiveness */
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
     h2 {
-        font-size: 14pt;
-        margin-bottom: 10px;
-    }
-
-    .scoreboards-display {
-        gap: 2px;
-        padding: 0 5px;
-    }
-
-    .scoreboard {
-        padding: 12px;
-        flex: 1;
-    }
-
-    textarea {
-        font-size: 9.5pt;
-        padding: 10px 0px;
-    }
-
-    .Score {
-        font-size: 20px;
-        padding-top: 6px;
-        padding-bottom: 6px;
-    }
-
-    .game-grid-buttons {
-        gap: 4px;
-    }
-
-    .game-button {
-        padding: 10px 6px;
-        font-size: 12pt;
-    }
-}
-
-/* @media (max-width: 480px) {
-    h2 {
-        font-size: 12pt;
+        font-size: 20pt;
         margin-bottom: 8px;
     }
 
     .scoreboards-display {
-        gap: 6px;
-        padding: 0 2px;
+        gap: 3px;
+        padding: 0 0px;
     }
 
     .scoreboard {
-        padding: 8px;
+        padding: 12px;
     }
 
     textarea {
-        font-size: 8pt;
-        padding: 4px;
+        font-size: 4020pt;
+        padding: 4px 0px;
     }
 
     .Score {
-        font-size: 18px;
+        font-size: 20pt;
         padding-top: 4px;
         padding-bottom: 4px;
     }
@@ -219,17 +183,63 @@ textarea::selection {
     }
 
     .game-button {
-        padding: 6px 2px;
-        font-size: 9pt;
+        padding: 10px 15px;
+        font-size: 13pt;
     }
 
     .circle {
-        width: 8px;
-        height: 8px;
+        width: 50px;
+        height: 50px;
     }
 
     .wins-indicator {
         gap: 4px;
         margin: 6px 0;
     }
-} */
+}
+
+@media screen and (max-width: 480px) {
+    h2 {
+        font-size: 12pt;
+        margin-bottom: 8px;
+    }
+
+    .scoreboards-display {
+        gap: 3px;
+        padding: 0 0px;
+    }
+
+    .scoreboard {
+        padding: 12px;
+    }
+
+    textarea {
+        font-size: 16pt;
+        padding: 4px 0px;
+    }
+
+    .Score {
+        font-size: 24pt;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    .game-grid-buttons {
+        gap: 4px;
+    }
+
+    .game-button {
+        padding: 10px 15px;
+        font-size: 13pt;
+    }
+
+    .circle {
+        width: 50px;
+        height: 50px;
+    }
+
+    .wins-indicator {
+        gap: 4px;
+        margin: 6px 0;
+    }
+}

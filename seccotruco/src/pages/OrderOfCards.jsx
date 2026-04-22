@@ -43,72 +43,68 @@ const MINEIRO_ORDER = [
 function OrderOfCards() {
     const [viraIndex, setViraIndex] = useState(null);
 
-    // Compute the current order for Paulista
     let paulistaCards = [...PAULISTA_ORDER];
     let manillas = [];
-    
+
     if (viraIndex !== null) {
-        // The manillas are the next card after vira, wrapping around
-        const nextIndex = (viraIndex+1) % PAULISTA_ORDER.length;
-    
-        paulistaCards = [
-            ...PAULISTA_ORDER.filter((_, i) => i !== (viraIndex+1) % PAULISTA_ORDER.length),
-        ];
-
-        manillas = PAULISTA_MANILLAS.map((m) => ({ ...m, value: PAULISTA_ORDER[nextIndex].value, suit: m.suit }));
-    }
-
-    function resetOrder() {
-        setViraIndex(null);
+        const nextIndex = (viraIndex + 1) % PAULISTA_ORDER.length;
+        paulistaCards = PAULISTA_ORDER.filter((_, i) => i !== nextIndex);
+        manillas = PAULISTA_MANILLAS.map((m) => ({ ...m, value: PAULISTA_ORDER[nextIndex].value }));
     }
 
     return (
         <>
-            <h2>Order Of Cards</h2>
+            <h2>Order of Cards</h2>
 
-            <h4>Paulista</h4>
-            <hr />
-            <div className="card-row">
-                {paulistaCards.map((card, idx) => {
-                    const originalIndex = PAULISTA_ORDER.findIndex(originaCard => 
-                        originaCard.value === card.value && originaCard.suit === card.suit
-                    );
-                    return (
-                        <Card
-                            key={idx}
-                            value={card.value}
-                            suit={card.suit}
-                            selected={viraIndex === originalIndex}
-                            onClick={() => setViraIndex(idx)}
-                        />
-                    );
-                })}
-                {viraIndex !== null &&
-                    manillas.map((card, idx) => (
+            <div className="oc-section">
+                <div className="oc-section-header">
+                    <h4>Paulista</h4>
+                    {viraIndex !== null && (
+                        <button className="reset-button" onClick={() => setViraIndex(null)}>Reset</button>
+                    )}
+                </div>
+                {viraIndex === null && (
+                    <p className="oc-hint">Select a card to set the vira</p>
+                )}
+                <div className="card-row">
+                    {paulistaCards.map((card, idx) => {
+                        const originalIndex = PAULISTA_ORDER.findIndex(o =>
+                            o.value === card.value && o.suit === card.suit
+                        );
+                        return (
+                            <Card
+                                key={idx}
+                                value={card.value}
+                                suit={card.suit}
+                                selected={viraIndex === originalIndex}
+                                onClick={() => setViraIndex(idx)}
+                            />
+                        );
+                    })}
+                    {viraIndex !== null && manillas.map((card, idx) => (
                         <Card
                             key={"manilla-" + idx}
                             value={card.value}
                             suit={card.suit}
                             highlight
-                            />
+                        />
                     ))}
+                </div>
             </div>
-            
-            {viraIndex !== null && ( 
-                <button className="reset-button"
-                onClick={() => resetOrder()}>Reset</button>
-            )}
-            
-            <h4>Mineiro</h4>
-            <hr />
-            <div className="card-row">
-                {MINEIRO_ORDER.map((card, idx) => (
-                    <Card
-                        key={idx}
-                        value={card.value}
-                        suit={card.suit}
-                    />
-                ))}
+
+            <div className="oc-section">
+                <div className="oc-section-header">
+                    <h4>Mineiro</h4>
+                </div>
+                <div className="card-row">
+                    {MINEIRO_ORDER.map((card, idx) => (
+                        <Card
+                            key={idx}
+                            value={card.value}
+                            suit={card.suit}
+                        />
+                    ))}
+                </div>
             </div>
         </>
     );

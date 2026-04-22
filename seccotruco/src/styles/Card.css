@@ -33,7 +33,8 @@
 .card.selected {
     border: none;
     box-shadow: 0 4px 16px #222;
-    background: var(--green1);
+    background: var(--greenOpacity);
+    border: 2.5px solid var(--green1);
 }
 .card.highlight {
     border: 2.5px solid var(--beige);

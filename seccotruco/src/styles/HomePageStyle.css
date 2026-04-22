@@ -2,6 +2,7 @@
   --beige: #FEFAE0;
   --gray: #F2EED7;
   --green1: #798645;
+  --greenOpacity: rgba(121, 134, 69, 0.45);
   --green2: #626F47;
   --error: #DC143C;
 }

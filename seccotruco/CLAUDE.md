@@ -30,6 +30,18 @@ No test suite is configured.
 
 **HowToPlay** ([src/pages/HowToPlay.jsx](src/pages/HowToPlay.jsx)) is purely presentational: it reads all content from [src/HowToPlay.json](src/HowToPlay.json) and renders it through small local components (`SectionTitle`, `InfoBox`, `VariationBox`, `WarningBox`, `ExampleRound`). To update rules text, edit the JSON.
 
-**OrderOfCards** ([src/pages/OrderOfCards.jsx](src/pages/OrderOfCards.jsx)) renders static card rankings for both variants. For Paulista it also supports interactive vira selection: clicking a card marks it as the vira and dynamically computes which cards become manilhas (next rank, all four suits highlighted).
+**OrderOfCards** ([src/pages/OrderOfCards.jsx](src/pages/OrderOfCards.jsx)) renders card rankings for both variants inside `.oc-section` boxes. For Paulista it also supports interactive vira selection: clicking a card marks it as the vira and dynamically computes which cards become manilhas (next rank, all four suits highlighted). The reset button lives inline in the section header and only renders when a vira is selected.
 
-**Styling** — each component/page has a matching CSS file in `src/styles/`. The green felt "fabric" background and CSS variables (`--green1`, `--beige`) are shared across all pages via the `.fabric` class.
+**Styling** — each component/page has a matching CSS file in `src/styles/`. The green felt "fabric" background and CSS variables are shared across all pages via the `.fabric` class.
+
+CSS variables (defined in [src/styles/HomePageStyle.css](src/styles/HomePageStyle.css)):
+- `--beige: #FEFAE0` — lightest cream, used for section backgrounds (OrderOfCards), dialog boxes
+- `--gray: #F2EED7` — warm cream, used for scoreboard panels, card faces, h2/navbar text
+- `--green1: #798645` — accent green, used for scores, active nav links, highlights, buttons
+- `--greenOpacity: rgba(121, 134, 69, 0.45)` — semi-transparent green1
+- `--green2: #626F47` — dark green, used for fabric background, game buttons, body text on light backgrounds
+
+**Responsive layout:**
+- Desktop (>768px): scoreboards are enlarged via a `min-width: 769px` media query in [src/styles/ScoreboardStyles.css](src/styles/ScoreboardStyles.css).
+- Mobile portrait (≤768px / ≤480px): compact scoreboard sizing with taller buttons.
+- Mobile landscape (`orientation: landscape` + `max-height: 500px`): the h2 title is hidden; `.page-content` becomes a flex column (set in [src/styles/HomePageStyle.css](src/styles/HomePageStyle.css)) so `.scoreboards-display { flex: 1 }` can fill the full remaining height. Each `.centered-div-scoreboard` uses `align-items: stretch` and `.scoreboard { flex: 1 }` to fill the available space. Fabric vertical padding is also reduced to 8px in this mode.

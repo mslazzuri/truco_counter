@@ -151,7 +151,39 @@ textarea::selection {
     font-size: 12pt;
 }
 
-/* Mobile responsiveness */
+/* Desktop: larger scoreboards */
+@media screen and (min-width: 769px) {
+    .scoreboard {
+        padding: 30px 35px;
+        min-width: 220px;
+    }
+
+    .Score {
+        font-size: 52pt;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+
+    textarea {
+        font-size: 14pt;
+        padding: 12px;
+    }
+
+    .game-button {
+        padding: 14px 20px;
+        font-size: 14pt;
+    }
+
+    .game-grid-buttons {
+        gap: 12px;
+    }
+
+    .wins-indicator {
+        margin: 10px 0;
+    }
+}
+
+/* Mobile portrait */
 @media screen and (max-width: 768px) {
     h2 {
         font-size: 20pt;
@@ -168,33 +200,33 @@ textarea::selection {
     }
 
     textarea {
-        font-size: 4020pt;
+        font-size: 14pt;
         padding: 4px 0px;
     }
 
     .Score {
-        font-size: 20pt;
-        padding-top: 4px;
-        padding-bottom: 4px;
+        font-size: 22pt;
+        padding-top: 6px;
+        padding-bottom: 6px;
     }
 
     .game-grid-buttons {
-        gap: 4px;
+        gap: 5px;
     }
 
     .game-button {
-        padding: 10px 15px;
+        padding: 13px 15px;
         font-size: 13pt;
     }
 
     .circle {
-        width: 50px;
-        height: 50px;
+        width: 10px;
+        height: 10px;
     }
 
     .wins-indicator {
         gap: 4px;
-        margin: 6px 0;
+        margin: 8px 0;
     }
 }
 
@@ -214,32 +246,87 @@ textarea::selection {
     }
 
     textarea {
-        font-size: 16pt;
+        font-size: 14pt;
         padding: 4px 0px;
     }
 
     .Score {
-        font-size: 24pt;
-        padding-top: 4px;
-        padding-bottom: 4px;
+        font-size: 28pt;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
 
     .game-grid-buttons {
-        gap: 4px;
+        gap: 5px;
     }
 
     .game-button {
-        padding: 10px 15px;
+        padding: 13px 15px;
         font-size: 13pt;
     }
 
     .circle {
-        width: 50px;
-        height: 50px;
+        width: 10px;
+        height: 10px;
     }
 
     .wins-indicator {
         gap: 4px;
-        margin: 6px 0;
+        margin: 8px 0;
+    }
+}
+
+/* Mobile landscape: hide title, fill available space */
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    h2 {
+        display: none;
+    }
+
+    .scoreboards-display {
+        flex: 1;
+        min-height: 0;
+        gap: 8px;
+        align-items: stretch;
+    }
+
+    .centered-div-scoreboard {
+        flex: 1;
+        min-height: 0;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .scoreboard {
+        flex: 1;
+        min-height: 0;
+        padding: 10px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .Score {
+        font-size: 28pt;
+        padding-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    textarea {
+        font-size: 13pt;
+        padding: 5px 6px;
+    }
+
+    .game-button {
+        padding: 10px 10px;
+        font-size: 13pt;
+    }
+
+    .game-grid-buttons {
+        gap: 5px;
+    }
+
+    .wins-indicator {
+        margin: 4px 0;
+        gap: 4px;
     }
 }

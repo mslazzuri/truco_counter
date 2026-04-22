@@ -1,0 +1,79 @@
+{
+    "introduction": "Truco is a Brazilian card game for four players in two teams. Fast, loud, and built on bluffing. This site covers Paulista (São Paulo) and Mineiro (Minas Gerais) styles.",
+
+    "deckTitle": "The Deck",
+    "deck": "40 cards — A, 2, 3, 4, 5, 6, 7, J, Q, K in each suit (8s, 9s, 10s removed). Ranking from lowest to highest: 4, 5, 6, 7, Q, J, K, A, 2, 3. Note: Queens rank below Jacks.",
+
+    "objectiveTitle": "Objective",
+    "objective": [
+        "First team to 12 points wins.",
+        "Win a hand by taking 2 of 3 rounds.",
+        "Hands are normally worth 1 point — raise the stakes by calling Truco."
+    ],
+
+    "gameplayTitle": "Gameplay",
+    "gameplay": [
+        "Each player receives 3 cards per hand.",
+        "Each round, every player plays one card — highest card wins the round for their team.",
+        "Win 2 rounds to win the hand.",
+        "In rounds 2 and 3, you may play a card face-down (fechada). It can never win, but hides your hand."
+    ],
+
+    "tiedRoundsTitle": "Tied Rounds",
+    "tiedRounds": [
+        "Equal-rank cards from opposing teams — the round is tied, neither team scores it.",
+        "After a tie, the next team to win any round wins the entire hand."
+    ],
+
+    "manilhasTitle": "Manilhas",
+    "manilhasIntro": "Manilhas are trump cards that beat all normal cards. Both versions share the same suit rank: Clubs > Hearts > Spades > Diamonds.",
+    "mineiroManilhas": {
+        "title": "Mineiro — Fixed",
+        "cards": [
+            "4 of Clubs (Zap) — strongest",
+            "7 of Hearts (Escopeta)",
+            "A of Spades (Espadilha)",
+            "7 of Diamonds (Pica-fumo) — weakest"
+        ]
+    },
+    "paulistaManilhas": {
+        "title": "Paulista — Vira",
+        "description": "After dealing, the dealer flips the top remaining card (the vira). Manilhas are the next rank up from the vira, in all four suits.",
+        "example": "Vira is 7 → all Queens become manilhas."
+    },
+
+    "trucoTitle": "Calling Truco",
+    "trucoIntro": "Any player can call Truco on their turn to raise the hand's value. The opposing team must respond.",
+    "trucoResponses": [
+        "Accept — play continues for the raised amount.",
+        "Raise — counter-raise to a higher value.",
+        "Forfeit — give up the current points."
+    ],
+    "trucoWarning": "You cannot raise if accepting would bring the opponent to 12.",
+    "trucoVariations": {
+        "mineiro": "Mineiro: Truco applies to the current round only.",
+        "paulista": "Paulista: Truco applies to the entire hand. Partners may look at each other's cards before responding."
+    },
+
+    "specialHandsTitle": "Special Situations",
+    "atEleven": {
+        "title": "At 11 — Mao de Onze",
+        "rules": [
+            "The team at 11 sees their partner's cards before deciding.",
+            "Choose to play (hand worth 3 pts, no Truco) or forfeit 1 point and skip the hand."
+        ]
+    },
+    "ironHand": {
+        "title": "Iron Hand — Mao de Ferro",
+        "description": "When both teams reach 11, all cards are played face-down for all 3 rounds. No Truco. Winner takes the game."
+    },
+
+    "tipsTitle": "Tips",
+    "tips": [
+        "Win rounds 1 and 2 early — don't waste strong cards on a round 3 you don't need.",
+        "Bluff with Truco. A confident call on a weak hand can win points without ever playing.",
+        "Save manilhas for critical moments — don't burn them on rounds already won.",
+        "After a tied round, the very next win decides the hand.",
+        "At 11, look at your partner's cards carefully before deciding to play."
+    ]
+}

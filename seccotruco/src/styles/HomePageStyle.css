@@ -1,0 +1,139 @@
+:root {
+  --beige: #FEFAE0;
+  --gray: #F2EED7;
+  --green1: #798645;
+  --greenOpacity: rgba(121, 134, 69, 0.45);
+  --green2: #626F47;
+  --error: #DC143C;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--beige);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.fabric {
+    background-color: var(--green2);
+    background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    height: 90vh;
+    width: 95vw;
+    padding: 25px;
+    position: relative;
+}
+
+.page-content {
+    flex: 1;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+.router-button {
+    cursor: pointer;
+    padding: 5px;
+    background-color: pink;
+    border: 2px solid blue;
+}
+
+h1 {
+    font-family: "Sekuya", system-ui;
+    font-size: 48pt;
+    color: var(--gray);
+}
+
+h4 {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 12pt;
+    font-weight: 300;
+    color: var(--gray);
+}
+
+hr {
+    border: 2px solid var(--green1);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.menu-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.menu-buttons button {
+    border: none;
+    color: var(--gray);
+    background-color: transparent;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-size: 22pt;
+    font-style: normal;
+    text-align: left;
+    margin-bottom: 25px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-buttons button:hover {
+    color: var(--green1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 32pt;
+    }
+    
+    .fabric {
+        height: 95vh;
+        width: 98vw;
+        padding: 15px;
+    }
+
+    .menu-buttons button {
+        font-size: 22pt;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24pt;
+    }
+
+    .fabric {
+        padding: 10px 5px;
+    }
+
+    .menu-buttons button {
+        font-size: 18pt;
+    }
+}
+
+@media screen and (orientation: landscape) and (max-height: 500px) {
+    .fabric {
+        padding-top: 8px;
+        padding-bottom: 8px;
+    }
+
+    .page-content {
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden;
+    }
+}

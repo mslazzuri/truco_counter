@@ -1,43 +1,100 @@
-import { useState } from 'react';
+import { Fragment } from "react";
+import truco from "../HowToPlay.json";
 import "../styles/HowToPlay.css";
 
-function HowToPlay() {
-    return(
+function SectionTitle({ children }) {
+    return (
         <>
-        <div className="fabric">
-            <h2>How to Play Truco</h2>
-            <br />
-            <p>
-                Truco is a famous card game in Brazil that involves beting, bleffing, being strategic and lively gesturing. 
-                Among many different ways of playing it, mainly two different variations stand out: the Paulista and Mineiro. 
-                Both will be covered here
-            </p>
-
-            <br />
-            <br />
-
-            <h4>The Deck</h4>
+            <h4>{children}</h4>
             <hr />
-            <p>
-                The Deck is composed of 40 cards only, 12 shorter than a full traditional deck. That is because truco does not uses 
-                the eights, nines, and tens (8s, 9s, and 10s). This leaves us with all of the As, 2s, 3s, 4s, 5s, 6s, 7s, Js, Qs, and Ks in the deck.
-                But be aware: the order of cards is different than the traditional and will be explained later. There is also a page in this website
-                called 'Order of Cards' that visually displays it.
-            </p>
-
-            <br />
-            <br />
-            
-            <h4>Order of Cards</h4>
-            <hr />
-            <p>Here's where both versions start to differ... The Paulista has an order, from 'weakest' to 'strongest' of:</p>
-            <br />
-            <p>4s, 5s, 6s, 7s, Qs, Js, Ks, As, 2s, 3s</p>
-            {/* <p></p> */}
-
-        </div>
         </>
     );
 }
 
-export default HowToPlay
+function VariantCard({ title, children }) {
+    return (
+        <div className="variant-card">
+            {title && <h5 className="variant-title">{title}</h5>}
+            {children}
+        </div>
+    );
+}
+
+function HowToPlay() {
+    return (
+        <div className="how-to-play">
+            <h2>How to Play</h2>
+            <p>{truco.introduction}</p>
+
+            <SectionTitle>{truco.deckTitle}</SectionTitle>
+            <p>{truco.deck}</p>
+
+            <SectionTitle>{truco.objectiveTitle}</SectionTitle>
+            <ul>
+                {truco.objective.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+
+            <SectionTitle>{truco.gameplayTitle}</SectionTitle>
+            <ul>
+                {truco.gameplay.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+
+            <SectionTitle>{truco.tiedRoundsTitle}</SectionTitle>
+            <ul>
+                {truco.tiedRounds.map((item, i) => <li key={i}>{item}</li>)}
+            </ul>
+
+            <SectionTitle>{truco.manilhasTitle}</SectionTitle>
+            <p>{truco.manilhasIntro}</p>
+            <div className="variant-grid">
+                <VariantCard title={truco.mineiroManilhas.title}>
+                    <ol>
+                        {truco.mineiroManilhas.cards.map((c, i) => <li key={i}>{c}</li>)}
+                    </ol>
+                </VariantCard>
+                <VariantCard title={truco.paulistaManilhas.title}>
+                    <p>{truco.paulistaManilhas.description}</p>
+                    <p className="htp-example">{truco.paulistaManilhas.example}</p>
+                </VariantCard>
+            </div>
+
+            <SectionTitle>{truco.trucoTitle}</SectionTitle>
+            <p>{truco.trucoIntro}</p>
+            <ul>
+                {truco.trucoResponses.map((r, i) => <li key={i}>{r}</li>)}
+            </ul>
+            <div className="truco-scale">
+                {["1 pt", "3 pts", "6 pts", "9 pts", "12 pts"].map((step, i, arr) => (
+                    <Fragment key={i}>
+                        <span className="scale-step">{step}</span>
+                        {i < arr.length - 1 && <span className="scale-arrow">→</span>}
+                    </Fragment>
+                ))}
+            </div>
+            <p className="htp-note">{truco.trucoWarning}</p>
+            <div className="variant-grid">
+                <VariantCard><p>{truco.trucoVariations.mineiro}</p></VariantCard>
+                <VariantCard><p>{truco.trucoVariations.paulista}</p></VariantCard>
+            </div>
+
+            <SectionTitle>{truco.specialHandsTitle}</SectionTitle>
+            <div className="variant-grid">
+                <VariantCard title={truco.atEleven.title}>
+                    <ul>
+                        {truco.atEleven.rules.map((r, i) => <li key={i}>{r}</li>)}
+                    </ul>
+                </VariantCard>
+                <VariantCard title={truco.ironHand.title}>
+                    <p>{truco.ironHand.description}</p>
+                </VariantCard>
+            </div>
+
+            <SectionTitle>{truco.tipsTitle}</SectionTitle>
+            <ul>
+                {truco.tips.map((tip, i) => <li key={i}>{tip}</li>)}
+            </ul>
+        </div>
+    );
+}
+
+export default HowToPlay;

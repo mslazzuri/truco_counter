@@ -55,7 +55,7 @@ function OrderOfCards() {
             ...PAULISTA_ORDER.filter((_, i) => i !== (viraIndex+1) % PAULISTA_ORDER.length),
         ];
 
-        manillas = PAULISTA_MANILLAS.map((m, i) => ({ ...m, value: PAULISTA_ORDER[nextIndex].value, suit: m.suit }));
+        manillas = PAULISTA_MANILLAS.map((m) => ({ ...m, value: PAULISTA_ORDER[nextIndex].value, suit: m.suit }));
     }
 
     function resetOrder() {
@@ -63,7 +63,7 @@ function OrderOfCards() {
     }
 
     return (
-        <div className="fabric">
+        <>
             <h2>Order Of Cards</h2>
 
             <h4>Paulista</h4>
@@ -110,7 +110,7 @@ function OrderOfCards() {
                     />
                 ))}
             </div>
-        </div>
+        </>
     );
 }
 

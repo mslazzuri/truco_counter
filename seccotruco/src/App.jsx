@@ -7,17 +7,14 @@ function App() {
   const handlePageClick = (path) => { navigate(path); };
   
   return (
-    <>    
-      {/* This is a centered div by the way */}
-      <div className="fabric">
-        <h1>Secco Truco</h1>  
-        <hr />
-        <div className="menu-buttons">
-          <button onClick={() => handlePageClick("/scoreboard-paulista")}>Scoreboard Paulista</button>
-          <button onClick={() => handlePageClick("/scoreboard-mineiro")}>Scoreboard Mineiro</button>
-          <button onClick={() => handlePageClick("/how-to-play")}>How To Play</button>
-          <button onClick={() => handlePageClick("/order-of-cards")}>Order of Cards</button>
-        </div>
+    <>
+      {/* <h1>Secco Truco</h1>
+      <hr /> */}
+      <div className="menu-buttons">
+        <button onClick={() => handlePageClick("/scoreboard-paulista")}>Scoreboard Paulista</button>
+        <button onClick={() => handlePageClick("/scoreboard-mineiro")}>Scoreboard Mineiro</button>
+        <button onClick={() => handlePageClick("/how-to-play")}>How To Play</button>
+        <button onClick={() => handlePageClick("/order-of-cards")}>Order of Cards</button>
       </div>
     </>
   )

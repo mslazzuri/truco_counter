@@ -69,17 +69,14 @@ function ScoreboardPaulista() {
 
     return (
         <>
-        <div className="fabric">
             <h2>Scoreboard Paulista</h2>
 
             {isGameOver() && (
-                <>
-                    <DialogBox isOpen={true} onClose={() => resetGame()} buttonText={"New Game"}>
-                        <h3>Game Over!</h3>
-                        <br />
-                        <p style={{fontSize: "12pt", fontWeight: "300", color: "black"}}> {wins1 == 2? teamName1 : teamName2} wins the game!</p>
-                    </DialogBox>
-                </>
+                <DialogBox isOpen={true} onClose={() => resetGame()} buttonText={"New Game"}>
+                    <h3>Game Over!</h3>
+                    <br />
+                    <p style={{fontSize: "12pt", fontWeight: "300", color: "black"}}> {wins1 == 2? teamName1 : teamName2} wins the game!</p>
+                </DialogBox>
             )}
 
             {!isGameOver() && (
@@ -88,13 +85,13 @@ function ScoreboardPaulista() {
                         <Scoreboard team={teamName1} type="Paulista" wins={wins1} score={score1} onScoreChange={(pts) => handleScoreChange(1, pts)} onNameChange={(name) => handleNameChange(1, name)} />
                         <Scoreboard team={teamName2} type="Paulista" wins={wins2} score={score2} onScoreChange={(pts) => handleScoreChange(2, pts)} onNameChange={(name) => handleNameChange(2, name)} />
                     </div>
-                    
+
                     {isElevens() && !elevensShown && (
                         <DialogBox isOpen={true} onClose={() => setElevensShown(true)}>
                             <p style={{color: "black"}}>11's Hand!</p>
                         </DialogBox>
                     )}
-                    
+
                     {showDialogBox && (
                         <DialogBox isOpen={true} onClose={() => resetRound()}>
                             <p style={{color: "black"}}>{wonLastRound} Won!</p>
@@ -102,7 +99,6 @@ function ScoreboardPaulista() {
                     )}
                 </>
             )}
-        </div>
         </>
     );
 }

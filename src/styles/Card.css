@@ -61,8 +61,7 @@
 
 .card.selected {
     border: 2px solid var(--coral);
-    /* background: linear-gradient(135deg, rgba(249, 92, 75, 0.15) 0%, rgba(249, 92, 75, 0.8) 100%); */
-    background: var(--paper);
+    background: #F6F4F1;
     box-shadow: 0 0 16px rgba(249, 92, 75, 0.3);
     animation: pulse 2s infinite;
 }

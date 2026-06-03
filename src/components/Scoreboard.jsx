@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../styles/ScoreboardStyles.css";
 
 function Scoreboard({team, type, score, wins, onScoreChange, onNameChange}) {
@@ -27,16 +26,9 @@ function Scoreboard({team, type, score, wins, onScoreChange, onNameChange}) {
                 />
                 <div className="Score">{score}</div>
                 
-                <div style={{display: "flex", gap: "10px", justifyContent: "center", margin: "10px 0"}}>
-                    <div style={{width: "10px", height: "10px", borderRadius: "50%", 
-                        background: wins >= 1 ? "var(--coral)" : "var(--paper)",
-                        boxShadow: wins >= 1 ? "0 0 8px var(--coral), 0 0 4px var(--coral)" : "none",
-                    }}></div>
-                    
-                    <div style={{width: "10px", height: "10px", borderRadius: "50%", 
-                        background: wins >= 2 ? "var(--coral)" : "var(--paper)",
-                        boxShadow: wins >= 2 ? "0 0 8px var(--coral), 0 0 4px var(--coral)" : "none"
-                    }}></div>
+                <div className="wins-indicator">
+                    <div className={`circle${wins >= 1 ? " active" : ""}`}></div>
+                    <div className={`circle${wins >= 2 ? " active" : ""}`}></div>
                 </div>
                 
                 <div className="game-grid-buttons">

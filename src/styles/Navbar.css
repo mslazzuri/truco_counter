@@ -171,3 +171,47 @@
         width: 20px;
     }
 }
+
+/* Theme toggle button */
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16pt;
+    color: var(--text-light);
+    padding: 4px 8px;
+    line-height: 1;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.theme-toggle:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+/* On desktop: show as a regular list item inline with nav links */
+.theme-toggle-item {
+    display: flex;
+    align-items: center;
+    border-bottom: none !important;
+}
+
+/* On mobile: show at bottom of dropdown */
+@media (max-width: 768px) {
+    .theme-toggle {
+        padding: 12px 0;
+        font-size: 14pt;
+    }
+}
+
+/* Light mode: mobile dropdown background */
+:root[data-theme="light"] .nav-links {
+    background-color: rgba(245, 241, 232, 0.98);
+    border-color: rgba(249, 92, 75, 0.2);
+}
+
+:root[data-theme="light"] .nav-links li {
+    border-bottom-color: rgba(249, 92, 75, 0.1);
+}

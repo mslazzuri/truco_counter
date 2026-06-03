@@ -173,6 +173,16 @@ hr {
     }
 }
 
+/* Light mode overrides for hardcoded rgba values */
+:root[data-theme="light"] .scale-step {
+    background: rgba(28, 26, 23, 0.06);
+    border-color: rgba(28, 26, 23, 0.15);
+}
+
+:root[data-theme="light"] .variant-card {
+    background: rgba(249, 92, 75, 0.04);
+}
+
 @media (max-width: 480px) {
     .how-to-play {
         padding-bottom: 32px;

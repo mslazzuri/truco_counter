@@ -340,6 +340,40 @@ textarea::selection {
     }
 }
 
+/* Light mode overrides for hardcoded rgba values */
+:root[data-theme="light"] textarea {
+    border-color: rgba(28, 26, 23, 0.2);
+    color: var(--text-light);
+}
+
+:root[data-theme="light"] textarea:focus {
+    background-color: rgba(249, 92, 75, 0.05);
+}
+
+:root[data-theme="light"] .scoreboard {
+    border-color: rgba(28, 26, 23, 0.12);
+}
+
+:root[data-theme="light"] .game-button {
+    color: var(--paper);
+}
+
+:root[data-theme="light"] .game-grid-buttons .game-button:nth-last-child(-n+2) {
+    border-color: rgba(28, 26, 23, 0.2);
+    color: var(--stone);
+}
+
+:root[data-theme="light"] .game-grid-buttons .game-button:nth-last-child(-n+2):hover {
+    border-color: var(--stone);
+    background-color: rgba(28, 26, 23, 0.06);
+    color: var(--paper);
+}
+
+:root[data-theme="light"] .dialog-box {
+    border-color: rgba(249, 92, 75, 0.25);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
 /* Mobile landscape: hide title, fill available space */
 @media screen and (orientation: landscape) and (max-height: 500px) {
     h2 {

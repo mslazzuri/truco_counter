@@ -6,12 +6,21 @@
   --coral: #F95C4B;
   --stone: #E4DED2;
   --paper: #F6F4F1;
-  
+
   /* Semantic aliases */
   --bg-base: #000000;
   --accent-primary: #F95C4B;
   --text-light: #F6F4F1;
   --text-secondary: #E4DED2;
+}
+
+:root[data-theme="light"] {
+  --bg-base: #F5F1E8;
+  --black: #FFFFFF;
+  --paper: #1C1A17;
+  --stone: #7A746C;
+  --text-light: #1C1A17;
+  --text-secondary: #7A746C;
 }
 
 * {

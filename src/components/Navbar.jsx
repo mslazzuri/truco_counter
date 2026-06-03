@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/Navbar.css";
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
 const links = [
     { to: "/", label: "Home" },
@@ -10,7 +12,7 @@ const links = [
     { to: "/order-of-cards", label: "Order of Cards" },
 ];
 
-function Navbar() {
+function Navbar({ isDark, toggleTheme }) {
     const [open, setOpen] = useState(false);
 
     return (
@@ -19,7 +21,8 @@ function Navbar() {
                 Secco Truco
             </NavLink>
 
-            <button
+            <div style={{display: 'flex', flexDirection: 'row', gap: '10px', alignItems: 'center', justifyContent: 'center'}}>
+                <button
                 className={`hamburger ${open ? "open" : ""}`}
                 onClick={() => setOpen(prev => !prev)}
                 aria-label="Toggle menu"
@@ -44,6 +47,18 @@ function Navbar() {
                     </li>
                 ))}
             </ul>
+
+            <div className="theme-toggle-item">
+                <button
+                    className="theme-toggle"
+                    onClick={() => { toggleTheme(); setOpen(false); }}
+                    aria-label="Toggle theme"
+                >
+                    {isDark ? <FontAwesomeIcon icon={faSun}/> : <FontAwesomeIcon icon={faMoon}/>}
+                </button>
+            </div>
+            </div>
+            
         </nav>
     );
 }

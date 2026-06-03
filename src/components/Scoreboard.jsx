@@ -20,7 +20,7 @@ function Scoreboard({team, type, score, wins, onScoreChange, onNameChange}) {
                     value={team} 
                     maxLength={15}
                     rows={1}
-                    onFocus={(e) => e.target.style.outline = "2px solid var(--green1)"}
+                    onFocus={(e) => e.target.style.outline = "2px solid var(--coral)"}
                     onBlur={(e) => e.target.style.outline = "2px solid transparent"}
                     onChange={(e) => onNameChange(e.target.value)}
                     onKeyDown={handleKeyDown}
@@ -29,13 +29,13 @@ function Scoreboard({team, type, score, wins, onScoreChange, onNameChange}) {
                 
                 <div style={{display: "flex", gap: "10px", justifyContent: "center", margin: "10px 0"}}>
                     <div style={{width: "10px", height: "10px", borderRadius: "50%", 
-                        background: wins >= 1 ? "var(--green1)" : "var(--beige)",
-                        boxShadow: wins >= 1 ? "0 0 8px var(--green1), 0 0 4px var(--green1)" : "none",
+                        background: wins >= 1 ? "var(--coral)" : "var(--paper)",
+                        boxShadow: wins >= 1 ? "0 0 8px var(--coral), 0 0 4px var(--coral)" : "none",
                     }}></div>
                     
                     <div style={{width: "10px", height: "10px", borderRadius: "50%", 
-                        background: wins >= 2 ? "var(--green1)" : "var(--beige)",
-                        boxShadow: wins >= 2 ? "0 0 8px var(--green1), 0 0 4px var(--green1)" : "none"
+                        background: wins >= 2 ? "var(--coral)" : "var(--paper)",
+                        boxShadow: wins >= 2 ? "0 0 8px var(--coral), 0 0 4px var(--coral)" : "none"
                     }}></div>
                 </div>
                 

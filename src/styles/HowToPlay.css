@@ -1,57 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Lora:wght@400;500;600;700&display=swap');
+
+:root {
+  --black: #000000;
+  --coral: #F95C4B;
+  --stone: #E4DED2;
+  --paper: #F6F4F1;
+}
+
 .how-to-play {
     padding-bottom: 48px;
 }
 
 .how-to-play h2 {
-    margin-bottom: 16px;
+    margin-bottom: 32px;
 }
 
 .how-to-play p,
 .how-to-play li {
-    color: var(--gray);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 11pt;
-    font-weight: 300;
-    line-height: 1.65;
+    color: var(--text-light);
+    font-family: "Lora", serif;
+    font-size: 13pt;
+    font-weight: 400;
+    line-height: 1.7;
 }
 
 .how-to-play p {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .how-to-play ul,
 .how-to-play ol {
-    margin: 6px 0 14px 20px;
+    margin: 8px 0 18px 28px;
     padding: 0;
 }
 
 .how-to-play li {
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+}
+
+h4 {
+    font-family: "Space Mono", monospace;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid rgba(249, 92, 75, 0.25);
+    margin: 16px 0 20px;
+    width: 100%;
 }
 
 /* Variant cards — used for Mineiro/Paulista side-by-side comparisons */
 .variant-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin: 10px 0 20px;
+    gap: 16px;
+    margin: 16px 0 24px;
 }
 
 .variant-card {
-    background: rgba(0, 0, 0, 0.18);
-    border-radius: 8px;
-    padding: 14px 16px;
-    border-top: 2px solid var(--green1);
+    background: rgba(249, 92, 75, 0.05);
+    border: 1px solid rgba(249, 92, 75, 0.15);
+    border-radius: 6px;
+    padding: 18px;
+    border-left: 3px solid var(--coral);
 }
 
 .variant-title {
-    color: var(--gray);
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 9pt;
-    font-weight: 600;
-    letter-spacing: 0.06em;
+    color: var(--coral);
+    font-family: "Space Mono", monospace;
+    font-size: 10pt;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.variant-card ol,
+.variant-card ul {
+    margin-left: 24px;
+}
+
+.variant-card li {
+    color: var(--text-light);
+    font-family: "Lora", serif;
+    font-size: 12pt;
+    margin-bottom: 6px;
+}
+
+.variant-card p {
+    color: var(--text-light);
+    font-family: "Lora", serif;
+    font-size: 12pt;
+    line-height: 1.6;
 }
 
 /* Truco betting scale */
@@ -59,46 +105,105 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 6px;
-    margin: 12px 0 14px;
+    gap: 8px;
+    margin: 18px 0 20px;
 }
 
 .scale-step {
-    font-family: "IBM Plex Mono", monospace;
-    font-size: 10pt;
-    font-weight: 400;
-    color: var(--gray);
-    background: rgba(0, 0, 0, 0.18);
-    padding: 4px 10px;
+    font-family: "Space Mono", monospace;
+    font-size: 11pt;
+    font-weight: 700;
+    color: var(--text-light);
+    background: rgba(246, 244, 241, 0.08);
+    border: 1px solid rgba(246, 244, 241, 0.15);
+    padding: 6px 14px;
     border-radius: 4px;
+    letter-spacing: 0.02em;
 }
 
 .scale-arrow {
-    color: var(--green1);
-    font-size: 11pt;
+    color: var(--coral);
+    font-size: 12pt;
+    font-weight: 700;
 }
 
 /* Subtle note text */
 .htp-note {
-    font-size: 10pt !important;
-    opacity: 0.7;
+    font-size: 12pt !important;
+    opacity: 0.8;
+    font-style: italic;
+    color: var(--stone);
+    margin-top: 16px;
 }
 
 .htp-example {
     font-style: italic;
-    opacity: 0.75;
-    font-size: 10pt !important;
-    margin-top: 8px;
+    opacity: 0.85;
+    font-size: 12pt !important;
+    margin-top: 10px;
+    color: var(--stone);
 }
 
 /* Mobile */
-@media (max-width: 640px) {
+@media (max-width: 768px) {
     .variant-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+        margin: 12px 0 18px;
     }
 
     .how-to-play p,
     .how-to-play li {
+        font-size: 12pt;
+        line-height: 1.6;
+    }
+
+    .variant-card {
+        padding: 14px;
+    }
+
+    .scale-step {
         font-size: 10pt;
+        padding: 5px 12px;
+    }
+
+    h4 {
+        font-size: 10pt;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .how-to-play {
+        padding-bottom: 32px;
+    }
+
+    .how-to-play p,
+    .how-to-play li {
+        font-size: 11pt;
+    }
+
+    .how-to-play ul,
+    .how-to-play ol {
+        margin: 6px 0 14px 24px;
+    }
+
+    .variant-grid {
+        gap: 10px;
+    }
+
+    .variant-card {
+        padding: 12px;
+        border-left-width: 2px;
+    }
+
+    .truco-scale {
+        gap: 6px;
+        margin: 14px 0 16px;
+    }
+
+    .scale-step {
+        font-size: 9pt;
+        padding: 4px 10px;
     }
 }

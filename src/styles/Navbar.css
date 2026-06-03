@@ -1,47 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Lora:wght@400;500;600;700&display=swap');
+
+:root {
+  --black: #000000;
+  --coral: #F95C4B;
+  --stone: #E4DED2;
+  --paper: #F6F4F1;
+}
+
 .navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-bottom: 12px;
-    margin-bottom: 16px;
-    border-bottom: 2px solid var(--green1);
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid rgba(249, 92, 75, 0.2);
     flex-shrink: 0;
     position: relative;
 }
 
 .navbar-brand {
-    font-family: "Sekuya", system-ui;
-    color: var(--gray);
+    font-family: "Space Mono", monospace;
+    color: var(--text-light);
     font-size: 18pt;
+    font-weight: 700;
     text-decoration: none;
-    transition: color 0.15s;
+    transition: color 0.2s ease;
+    letter-spacing: -0.02em;
 }
 
 .navbar-brand:hover {
-    color: var(--beige);
+    color: var(--coral);
 }
 
 .nav-links {
     display: flex;
     list-style: none;
-    gap: 24px;
+    gap: 32px;
     align-items: center;
     margin: 0;
     padding: 0;
 }
 
 .nav-link {
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 300;
-    font-size: 10pt;
-    color: var(--gray);
+    font-family: "Lora", serif;
+    font-weight: 500;
+    font-size: 11pt;
+    color: var(--text-light);
     text-decoration: none;
-    transition: color 0.15s;
+    transition: color 0.2s ease;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
-.nav-link:hover,
+.nav-link:hover {
+    color: var(--coral);
+}
+
 .nav-link.active {
-    color: var(--green1);
+    color: var(--coral);
+    border-bottom: 2px solid var(--coral);
+    padding-bottom: 2px;
 }
 
 /* Hamburger button — hidden on desktop */
@@ -53,30 +71,42 @@
     background: none;
     border: none;
     cursor: pointer;
-    padding: 4px;
+    padding: 8px;
+    transition: transform 0.2s ease;
+}
+
+.hamburger:active {
+    transform: scale(0.95);
 }
 
 .hamburger-line {
     display: block;
-    width: 22px;
-    height: 2px;
-    background-color: var(--gray);
-    border-radius: 2px;
-    transition: transform 0.25s, opacity 0.25s;
+    width: 24px;
+    height: 1.5px;
+    background-color: var(--text-light);
+    border-radius: 1px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 .hamburger.open .hamburger-line:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
 }
+
 .hamburger.open .hamburger-line:nth-child(2) {
     opacity: 0;
 }
+
 .hamburger.open .hamburger-line:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
 }
 
 /* Mobile — show hamburger, hide inline links */
 @media (max-width: 768px) {
+    .navbar {
+        padding-bottom: 12px;
+        margin-bottom: 16px;
+    }
+
     .hamburger {
         display: flex;
     }
@@ -84,18 +114,18 @@
     .nav-links {
         display: none;
         position: absolute;
-        top: calc(100% + 2px);
-        left: -25px;
-        right: -25px;
+        top: calc(100% + 8px);
+        left: -24px;
+        right: -24px;
         flex-direction: column;
         gap: 0;
-        background-color: var(--green2);
-        background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
-        border-top: 2px solid var(--green1);
-        border-radius: 0 0 10px 10px;
-        padding: 4px 25px 12px;
+        background-color: rgba(0, 0, 0, 0.95);
+        border: 1px solid rgba(249, 92, 75, 0.2);
+        border-top: none;
+        border-radius: 0 0 6px 6px;
+        padding: 8px 24px 12px;
         z-index: 100;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(8px);
     }
 
     .nav-links.open {
@@ -104,7 +134,7 @@
 
     .nav-links li {
         width: 100%;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(249, 92, 75, 0.1);
     }
 
     .nav-links li:last-child {
@@ -116,12 +146,28 @@
         padding: 12px 0;
         font-size: 12pt;
     }
+
+    .navbar-brand {
+        font-size: 16pt;
+    }
 }
 
 @media (max-width: 480px) {
     .nav-links {
-        left: -15px;
-        right: -15px;
-        padding: 4px 15px 12px;
+        left: -16px;
+        right: -16px;
+        padding: 8px 16px 12px;
+    }
+
+    .navbar-brand {
+        font-size: 14pt;
+    }
+
+    .hamburger {
+        padding: 6px;
+    }
+
+    .hamburger-line {
+        width: 20px;
     }
 }

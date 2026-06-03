@@ -1,10 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Lora:wght@400;500;600;700&display=swap');
+
 :root {
-  --beige: #FEFAE0;
-  --gray: #F2EED7;
-  --green1: #798645;
-  --greenOpacity: rgba(121, 134, 69, 0.45);
-  --green2: #626F47;
-  --error: #DC143C;
+  /* Dark, sleek palette */
+  --black: #000000;
+  --coral: #F95C4B;
+  --stone: #E4DED2;
+  --paper: #F6F4F1;
+  
+  /* Semantic aliases */
+  --bg-base: #000000;
+  --accent-primary: #F95C4B;
+  --text-light: #F6F4F1;
+  --text-secondary: #E4DED2;
 }
 
 * {
@@ -13,27 +20,31 @@
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
 body {
-    background-color: var(--beige);
+    background-color: var(--bg-base);
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
     overflow: hidden;
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 200;
-    font-style: normal;
+    font-family: "Lora", serif;
+    font-weight: 400;
+    color: var(--text-light);
 }
 
 .fabric {
-    background-color: var(--green2);
-    background-image: url("https://www.transparenttextures.com/patterns/absurdity.png");
+    background-color: var(--bg-base);
     display: flex;
     flex-direction: column;
-    border-radius: 10px;
-    height: 90vh;
-    width: 95vw;
-    padding: 25px;
+    border-radius: 0;
+    height: 100vh;
+    width: 100vw;
+    padding: 40px;
     position: relative;
 }
 
@@ -43,30 +54,37 @@ body {
     min-height: 0;
 }
 
-.router-button {
-    cursor: pointer;
-    padding: 5px;
-    background-color: pink;
-    border: 2px solid blue;
+h1 {
+    font-family: "Space Mono", monospace;
+    font-size: 48pt;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: -0.02em;
 }
 
-h1 {
-    font-family: "Sekuya", system-ui;
-    font-size: 48pt;
-    color: var(--gray);
+h2 {
+    font-family: "Space Mono", monospace;
+    font-size: 28pt;
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    text-align: center;
 }
 
 h4 {
-    font-family: "IBM Plex Mono", monospace;
+    font-family: "Space Mono", monospace;
     font-size: 12pt;
-    font-weight: 300;
-    color: var(--gray);
+    font-weight: 700;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 hr {
-    border: 2px solid var(--green1);
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border: none;
+    border-top: 1px solid rgba(249, 92, 75, 0.3);
+    margin: 16px 0;
     width: 100%;
 }
 
@@ -74,50 +92,48 @@ hr {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: 20px;
 }
 
 .menu-buttons button {
     border: none;
-    color: var(--gray);
+    color: var(--text-light);
     background-color: transparent;
-    font-family: "IBM Plex Mono", monospace;
-    font-weight: 400;
-    font-size: 22pt;
+    font-family: "Lora", serif;
+    font-weight: 500;
+    font-size: 20pt;
     font-style: normal;
     text-align: left;
-    margin-bottom: 25px;
     cursor: pointer;
     padding: 0;
+    transition: color 0.2s ease, transform 0.2s ease;
+    letter-spacing: -0.01em;
 }
 
 .menu-buttons button:hover {
-    color: var(--green1);
+    color: var(--accent-primary);
+    transform: translateX(6px);
+}
+
+.menu-buttons button:active {
+    transform: translateX(4px);
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
+    .fabric {
+        padding: 24px;
+        height: 100vh;
+        width: 100vw;
+    }
+
     h1 {
         font-size: 32pt;
     }
-    
-    .fabric {
-        height: 95vh;
-        width: 98vw;
-        padding: 15px;
-    }
 
-    .menu-buttons button {
-        font-size: 22pt;
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
+    h2 {
         font-size: 24pt;
-    }
-
-    .fabric {
-        padding: 10px 5px;
+        margin-bottom: 16px;
     }
 
     .menu-buttons button {
@@ -125,10 +141,36 @@ hr {
     }
 }
 
+@media (max-width: 480px) {
+    .fabric {
+        padding: 16px;
+    }
+
+    h1 {
+        font-size: 28pt;
+    }
+
+    h2 {
+        font-size: 20pt;
+    }
+
+    .menu-buttons {
+        gap: 16px;
+    }
+
+    .menu-buttons button {
+        font-size: 16pt;
+    }
+}
+
 @media screen and (orientation: landscape) and (max-height: 500px) {
     .fabric {
-        padding-top: 8px;
-        padding-bottom: 8px;
+        padding: 16px 40px;
+    }
+
+    h2 {
+        font-size: 20pt;
+        margin-bottom: 12px;
     }
 
     .page-content {

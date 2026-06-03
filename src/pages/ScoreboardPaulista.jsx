@@ -75,7 +75,7 @@ function ScoreboardPaulista() {
                 <DialogBox isOpen={true} onClose={() => resetGame()} buttonText={"New Game"}>
                     <h3>Game Over!</h3>
                     <br />
-                    <p style={{fontSize: "12pt", fontWeight: "300", color: "black"}}> {wins1 == 2? teamName1 : teamName2} wins the game!</p>
+                    <p style={{fontSize: "12pt", fontWeight: "300", color: "var(--paper)"}}> {wins1 == 2? teamName1 : teamName2} wins the game!</p>
                 </DialogBox>
             )}
 
@@ -88,13 +88,13 @@ function ScoreboardPaulista() {
 
                     {isElevens() && !elevensShown && (
                         <DialogBox isOpen={true} onClose={() => setElevensShown(true)}>
-                            <p style={{color: "black"}}>11's Hand!</p>
+                            <p style={{color: "var(--paper)"}}>11's Hand!</p>
                         </DialogBox>
                     )}
 
                     {showDialogBox && (
                         <DialogBox isOpen={true} onClose={() => resetRound()}>
-                            <p style={{color: "black"}}>{wonLastRound} Won!</p>
+                            <p style={{color: "var(--paper)"}}>{wonLastRound} Won!</p>
                         </DialogBox>
                     )}
                 </>

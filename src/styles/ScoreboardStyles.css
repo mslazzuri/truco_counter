@@ -1,59 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Lora:wght@400;500;600;700&display=swap');
+
+:root {
+  --black: #000000;
+  --coral: #F95C4B;
+  --stone: #E4DED2;
+  --paper: #F6F4F1;
+}
+
 .scoreboards-display {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 32px;
     height: 100%;
 }
 
 .Score {
-    color: var(--green1);
-    font-size: 24px;
-    font-weight: 800;
+    color: var(--coral);
+    font-size: 64px;
+    font-weight: 700;
+    font-family: "Space Mono", monospace;
     text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 20px 0;
+    letter-spacing: -0.03em;
 }
 
 .game-grid-buttons {
     display: grid;
-    gap: 10px;
+    gap: 12px;
     grid-template-columns: repeat(2, 1fr);
 }
 
 .game-button {
-    background-color: var(--green2);
-    color: var(--gray);
-    padding: 10px;
+    background-color: transparent;
+    color: var(--paper);
+    padding: 16px 20px;
     width: 100%;
     text-align: center;
-    border: none;
-    border-radius: 10px;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12pt;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.1);
+    border: 1.5px solid rgba(249, 92, 75, 0.3);
+    border-radius: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13pt;
+    font-weight: 700;
     cursor: pointer;
-}
-
-.game-grid-buttons .game-button:nth-last-child(-n+2) {
-    background-color: var(--beige);
-    color: var(--green2);
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.05);
-}
-
-.game-grid-buttons .game-button:nth-last-child(-n+2):hover {
-    background-color: var(--gray);
+    transition: all 0.2s ease;
+    user-select: none;
 }
 
 .game-button:hover {
-    background-color: var(--green1);
+    border-color: var(--coral);
+    color: var(--coral);
+    background-color: rgba(249, 92, 75, 0.08);
+}
+
+.game-button:active {
+    background-color: rgba(249, 92, 75, 0.15);
+    transform: scale(0.98);
+}
+
+/* Negative buttons (last two) */
+.game-grid-buttons .game-button:nth-last-child(-n+2) {
+    background-color: transparent;
+    border-color: rgba(228, 222, 210, 0.2);
+    color: var(--stone);
+}
+
+.game-grid-buttons .game-button:nth-last-child(-n+2):hover {
+    border-color: var(--stone);
+    background-color: rgba(228, 222, 210, 0.1);
+    color: var(--paper);
 }
 
 .circle {
-    width: 10px;
-    height: 10px;
-    background-color: #aaa;
+    width: 12px;
+    height: 12px;
+    background-color: transparent;
+    border: 2px solid rgba(249, 92, 75, 0.3);
     border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.circle.active {
+    background-color: var(--coral);
+    border-color: var(--coral);
+    box-shadow: 0 0 12px rgba(249, 92, 75, 0.4);
 }
 
 .wins-indicator {
@@ -61,47 +91,56 @@
     align-items: center;
     width: 100%;
     display: flex;
-    gap: 5px;
+    gap: 12px;
+    margin: 16px 0;
 }
 
 h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: "Sekuya", system-ui;
-    font-weight: 100;
-    font-size: 22pt;
-    color: var(--gray);
+    font-family: "Space Mono", monospace;
+    font-weight: 700;
+    font-size: 26pt;
+    color: var(--text-light);
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
 }
 
 textarea {
-    background-color: var(--beige);
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.05);
+    background-color: transparent;
+    border: 1px solid rgba(246, 244, 241, 0.2);
+    border-radius: 4px;
     text-align: center;
     align-content: center;
-    border: none;
-    padding: 10px;
-    border-radius: 10px;
+    padding: 12px 8px;
     resize: none;
-    outline: 2px solid transparent;
-    transition: outline 0.2s;
-    font-family: 'IMB Plex Mono' monospace;
-    font-weight: 800;
-    color: var(--green2);
-    font-size: 11pt;
+    outline: 1px solid transparent;
+    transition: all 0.2s ease;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    color: var(--text-light);
+    font-size: 14pt;
     width: 100%;
 }
 
+textarea:focus {
+    outline: 1px solid var(--coral);
+    border-color: var(--coral);
+    background-color: rgba(249, 92, 75, 0.05);
+}
+
 textarea::selection {
-    background-color: var(--green1);
-    color: var(--beige);
+    background-color: var(--coral);
+    color: var(--black);
 }
 
 .scoreboard {
-    background-color: var(--gray);
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.05);
+    background-color: transparent;
+    padding: 32px 28px;
+    border: 1px solid rgba(246, 244, 241, 0.1);
+    border-radius: 8px;
+    box-shadow: none;
 }
 
 .centered-div-scoreboard {
@@ -109,6 +148,7 @@ textarea::selection {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    flex: 1;
 }
 
 .dialog-overlay {
@@ -117,11 +157,12 @@ textarea::selection {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
+    backdrop-filter: blur(4px);
 }
 
 .dialog-box {
@@ -129,94 +170,118 @@ textarea::selection {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 25px;
-    background-color: var(--beige);
-    color: var(--green2);
-    max-width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    background-color: var(--black);
+    border: 1px solid rgba(249, 92, 75, 0.3);
+    color: var(--text-light);
+    max-width: 320px;
+    border-radius: 8px;
     z-index: 1001;
 }
 
+.dialog-box h3 {
+    font-family: "Space Mono", monospace;
+    font-size: 20pt;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.dialog-box p {
+    font-family: "Lora", serif;
+    font-size: 14pt;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
 .dialog-box button {
-    box-shadow: 0 0 10px rgb(0, 0, 0, 0.3), 0 0 10px rgb(0, 0, 0, 0.05);
-    margin-top: 25px;
-    background-color: var(--green1);
-    color: var(--gray);
+    background-color: var(--coral);
+    color: var(--black);
     border: none;
-    padding: 10px 50px;
-    border-radius: 10px;
-    font-family: 'Sekuya' monospace;
-    font-weight: 500;
+    padding: 12px 40px;
+    border-radius: 6px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
     font-size: 12pt;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.dialog-box button:hover {
+    background-color: var(--stone);
+    transform: translateY(-2px);
+}
+
+.dialog-box button:active {
+    transform: translateY(0);
 }
 
 /* Desktop: larger scoreboards */
 @media screen and (min-width: 769px) {
     .scoreboard {
-        padding: 30px 35px;
-        min-width: 220px;
+        padding: 36px 32px;
+        min-width: 240px;
     }
 
     .Score {
-        font-size: 52pt;
-        padding-top: 16px;
-        padding-bottom: 16px;
+        font-size: 72pt;
+        padding: 24px 0;
     }
 
     textarea {
-        font-size: 14pt;
-        padding: 12px;
+        font-size: 15pt;
+        padding: 14px 10px;
     }
 
     .game-button {
-        padding: 14px 20px;
+        padding: 18px 24px;
         font-size: 14pt;
     }
 
     .game-grid-buttons {
-        gap: 12px;
+        gap: 14px;
     }
 
     .wins-indicator {
-        margin: 10px 0;
+        margin: 16px 0;
     }
 }
 
 /* Mobile portrait */
 @media screen and (max-width: 768px) {
     h2 {
-        font-size: 20pt;
-        margin-bottom: 8px;
+        font-size: 22pt;
+        margin-bottom: 20px;
     }
 
     .scoreboards-display {
-        gap: 3px;
-        padding: 0 0px;
+        gap: 16px;
+        padding: 0;
     }
 
     .scoreboard {
-        padding: 12px;
+        padding: 20px 16px;
     }
 
     textarea {
-        font-size: 14pt;
-        padding: 4px 0px;
+        font-size: 13pt;
+        padding: 8px 4px;
     }
 
     .Score {
-        font-size: 22pt;
-        padding-top: 6px;
-        padding-bottom: 6px;
+        font-size: 44pt;
+        padding: 12px 0;
     }
 
     .game-grid-buttons {
-        gap: 5px;
+        gap: 10px;
     }
 
     .game-button {
-        padding: 13px 15px;
-        font-size: 13pt;
+        padding: 14px 12px;
+        font-size: 12pt;
     }
 
     .circle {
@@ -225,54 +290,53 @@ textarea::selection {
     }
 
     .wins-indicator {
-        gap: 4px;
-        margin: 8px 0;
+        gap: 10px;
+        margin: 12px 0;
     }
 }
 
 @media screen and (max-width: 480px) {
     h2 {
-        font-size: 12pt;
-        margin-bottom: 8px;
+        font-size: 18pt;
+        margin-bottom: 16px;
     }
 
     .scoreboards-display {
-        gap: 3px;
-        padding: 0 0px;
+        gap: 12px;
+        padding: 0;
     }
 
     .scoreboard {
-        padding: 12px;
+        padding: 16px 12px;
     }
 
     textarea {
-        font-size: 14pt;
-        padding: 4px 0px;
+        font-size: 12pt;
+        padding: 6px 4px;
     }
 
     .Score {
-        font-size: 28pt;
-        padding-top: 8px;
-        padding-bottom: 8px;
+        font-size: 40pt;
+        padding: 10px 0;
     }
 
     .game-grid-buttons {
-        gap: 5px;
+        gap: 8px;
     }
 
     .game-button {
-        padding: 13px 15px;
-        font-size: 13pt;
+        padding: 12px 10px;
+        font-size: 11pt;
     }
 
     .circle {
-        width: 10px;
-        height: 10px;
+        width: 9px;
+        height: 9px;
     }
 
     .wins-indicator {
-        gap: 4px;
-        margin: 8px 0;
+        gap: 8px;
+        margin: 10px 0;
     }
 }
 
@@ -285,7 +349,7 @@ textarea::selection {
     .scoreboards-display {
         flex: 1;
         min-height: 0;
-        gap: 8px;
+        gap: 12px;
         align-items: stretch;
     }
 
@@ -299,34 +363,33 @@ textarea::selection {
     .scoreboard {
         flex: 1;
         min-height: 0;
-        padding: 10px 14px;
+        padding: 12px 14px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
     }
 
     .Score {
-        font-size: 28pt;
-        padding-top: 4px;
-        padding-bottom: 4px;
+        font-size: 32pt;
+        padding: 4px 0;
     }
 
     textarea {
-        font-size: 13pt;
-        padding: 5px 6px;
+        font-size: 12pt;
+        padding: 4px 4px;
     }
 
     .game-button {
-        padding: 10px 10px;
-        font-size: 13pt;
+        padding: 10px 8px;
+        font-size: 11pt;
     }
 
     .game-grid-buttons {
-        gap: 5px;
+        gap: 6px;
     }
 
     .wins-indicator {
         margin: 4px 0;
-        gap: 4px;
+        gap: 6px;
     }
 }

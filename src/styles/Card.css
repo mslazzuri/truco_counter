@@ -1,7 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Lora:wght@400;500;600;700&display=swap');
+
+:root {
+  --black: #000000;
+  --coral: #F95C4B;
+  --stone: #E4DED2;
+  --paper: #F6F4F1;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
     to {
         opacity: 1;
@@ -9,49 +18,126 @@
     }
 }
 
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(249, 92, 75, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(249, 92, 75, 0);
+    }
+}
+
 .card {
-    width: 50px;
-    height: 80px;
-    padding: 5px;
-    background: var(--gray);
-    border: 2px solid var(--beige);
-    border-radius: 5px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    width: 56px;
+    height: 88px;
+    padding: 6px;
+    background: linear-gradient(135deg, rgba(246, 244, 241, 0.95) 0%, rgba(228, 222, 210, 0.9) 100%);
+    border: 1.5px solid rgba(246, 244, 241, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    font-family: "Sekuya", system-ui;
+    font-family: "Space Mono", monospace;
     font-size: 1.3rem;
-    font-weight: 200;
-    margin: 0 4px;
+    font-weight: 700;
+    margin: 0 2px;
     cursor: pointer;
-    transition: box-shadow 0.2s, border 0.2s, background 0.2s;
+    transition: all 0.2s ease;
     user-select: none;
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 0.4s ease-out;
 }
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    border-color: var(--coral);
+}
+
+.card:active {
+    transform: translateY(-2px);
+}
+
 .card.selected {
-    border: none;
-    box-shadow: 0 4px 16px #222;
-    background: var(--greenOpacity);
-    border: 2.5px solid var(--green1);
+    border: 2px solid var(--coral);
+    /* background: linear-gradient(135deg, rgba(249, 92, 75, 0.15) 0%, rgba(249, 92, 75, 0.8) 100%); */
+    background: var(--paper);
+    box-shadow: 0 0 16px rgba(249, 92, 75, 0.3);
+    animation: pulse 2s infinite;
 }
+
+.card.selected .card-value,
+.card.highlight .card-value {
+    color: var(--coral);
+}
+
 .card.highlight {
-    border: 2.5px solid var(--beige);
-    background: var(--gray);
-    animation: fadeIn 1s ease-in-out;
+    border: 2px solid var(--coral);
+    background: linear-gradient(135deg, rgba(249, 92, 75, 0.15) 0%, rgba(249, 92, 75, 0.8) 100%);
+    animation: fadeIn 0.4s ease-out;
 }
+
 .card-value {
-    font-weight: bold;
-    font-size: 1.1em;
-}
-.card-suit {
-    font-size: 1.3em;
-    margin-top: 2px;
-}
-.card-suit-hearts, .card-suit-diamonds {
-    color: #d32f2f;
-}
-.card-suit-clubs, .card-suit-spades {
+    font-weight: 700;
+    font-size: 1.2em;
     color: #222;
+    line-height: 1;
+}
+
+.card-suit {
+    font-size: 1.4em;
+    margin-top: 3px;
+}
+
+.card-suit-hearts,
+.card-suit-diamonds {
+    color: var(--coral);
+}
+
+.card-suit-clubs,
+.card-suit-spades {
+    color: #222;
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 50px;
+        height: 80px;
+        padding: 5px;
+        font-size: 1.1rem;
+    }
+
+    .card-value {
+        font-size: 1rem;
+    }
+
+    .card-suit {
+        font-size: 1.2em;
+        margin-top: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 44px;
+        height: 70px;
+        padding: 4px;
+        font-size: 1rem;
+        border-radius: 3px;
+        margin: 0 1px;
+    }
+
+    .card-value {
+        font-size: 0.9em;
+    }
+
+    .card-suit {
+        font-size: 1rem;
+        margin-top: 1px;
+    }
+
+    .card:hover {
+        transform: translateY(-2px);
+    }
 }

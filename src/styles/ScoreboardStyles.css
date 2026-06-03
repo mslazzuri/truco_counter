@@ -148,7 +148,6 @@ textarea::selection {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    flex: 1;
 }
 
 .dialog-overlay {
@@ -222,7 +221,7 @@ textarea::selection {
 @media screen and (min-width: 769px) {
     .scoreboard {
         padding: 36px 32px;
-        min-width: 240px;
+        min-width: 500px;
     }
 
     .Score {
@@ -392,6 +391,7 @@ textarea::selection {
         min-height: 0;
         align-items: stretch;
         justify-content: flex-start;
+        flex-direction: column;
     }
 
     .scoreboard {

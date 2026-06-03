@@ -27,14 +27,16 @@
     }
 }
 
+/* ── Dark mode (default) ─────────────────────────────────────── */
+
 .card {
     width: 56px;
     height: 88px;
     padding: 6px;
-    background: linear-gradient(135deg, rgba(246, 244, 241, 0.95) 0%, rgba(228, 222, 210, 0.9) 100%);
-    border: 1.5px solid rgba(246, 244, 241, 0.3);
+    background: #000000;
+    border: 1.5px solid var(--coral);
     border-radius: 4px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,18 +53,18 @@
 
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    border-color: var(--coral);
+    box-shadow: 0 8px 20px rgba(249, 92, 75, 0.3);
 }
 
 .card:active {
     transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(249, 92, 75, 0.2);
 }
 
 .card.selected {
     border: 2px solid var(--coral);
-    background: #F6F4F1;
-    box-shadow: 0 0 16px rgba(249, 92, 75, 0.3);
+    background: rgba(249, 92, 75, 0.08);
+    box-shadow: 0 0 16px rgba(249, 92, 75, 0.4);
     animation: pulse 2s infinite;
 }
 
@@ -73,14 +75,14 @@
 
 .card.highlight {
     border: 2px solid var(--coral);
-    background: linear-gradient(135deg, rgba(249, 92, 75, 0.15) 0%, rgba(249, 92, 75, 0.8) 100%);
+    background: linear-gradient(135deg, rgba(249, 92, 75, 0.15) 0%, rgba(249, 92, 75, 0.55) 100%);
     animation: fadeIn 0.4s ease-out;
 }
 
 .card-value {
     font-weight: 700;
     font-size: 1.2em;
-    color: #222;
+    color: var(--paper);
     line-height: 1;
 }
 
@@ -96,8 +98,45 @@
 
 .card-suit-clubs,
 .card-suit-spades {
+    color: var(--paper);
+}
+
+/* ── Light mode overrides ────────────────────────────────────── */
+
+:root[data-theme="light"] .card {
+    background: linear-gradient(135deg, rgba(246, 244, 241, 0.95) 0%, rgba(228, 222, 210, 0.9) 100%);
+    border: 1.5px solid rgba(246, 244, 241, 0.3);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="light"] .card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    border-color: var(--coral);
+}
+
+:root[data-theme="light"] .card:active {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+:root[data-theme="light"] .card.selected {
+    background: #F6F4F1;
+    box-shadow: 0 0 16px rgba(249, 92, 75, 0.3);
+}
+
+:root[data-theme="light"] .card.highlight {
+    background: linear-gradient(135deg, rgba(249, 92, 75, 0.15) 0%, rgba(249, 92, 75, 0.8) 100%);
+}
+
+:root[data-theme="light"] .card-value {
     color: #222;
 }
+
+:root[data-theme="light"] .card-suit-clubs,
+:root[data-theme="light"] .card-suit-spades {
+    color: #222;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
 
 @media (max-width: 768px) {
     .card {
